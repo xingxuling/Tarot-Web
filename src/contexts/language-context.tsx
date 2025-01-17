@@ -47,10 +47,8 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         return;
       }
 
-      const response = await fetch(`${process.env.EXPO_PUBLIC_API_URL}/users/${userId}/language`, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ language: lang })
+      const response = await fetch(`${process.env.EXPO_PUBLIC_API_URL}/users/${userId}/language?language=${lang}`, {
+        method: 'PUT'
       });
 
       if (response.ok) {
