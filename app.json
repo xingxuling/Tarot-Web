@@ -1,16 +1,18 @@
 {
   "expo": {
-    "name": "mobile",
-    "slug": "mobile",
+    "name": "Tarot Assistant",
+    "slug": "tarot-assistant",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "myapp",
-    "userInterfaceStyle": "automatic",
+    "scheme": "tarotassistant",
+    "userInterfaceStyle": "dark",
+    "backgroundColor": "#1e1b4b",
+    "primaryColor": "#9333ea",
     "splash": {
       "image": "./assets/images/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#1e1b4b"
     },
     "assetBundlePatterns": [
       "**/*"
