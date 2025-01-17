@@ -2,7 +2,7 @@
 {
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
-    "strict": true,
+    "strict": true
   },
   "include": [
     "**/*.ts",
@@ -11,4 +11,3 @@
     "expo-env.d.ts"
   ]
 }
->>>>>>> 84911ec (Initial commit)
