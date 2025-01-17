@@ -5,10 +5,11 @@
   "version": "1.0.0",
   "scripts": {
     "start": "expo start",
+    "test:app": "node scripts/load-test-env.js && expo start",
+    "test:unit": "jest --watchAll",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web",
-    "test": "jest --watchAll"
+    "web": "expo start --web"
   },
   "jest": {
     "preset": "jest-expo"
