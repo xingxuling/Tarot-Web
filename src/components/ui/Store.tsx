@@ -20,7 +20,7 @@ export const Store: React.FC = () => {
   const { addExperience } = useExperience();
 
   useEffect(() => {
-    fetch('http://localhost:8000/products')
+    fetch(`${process.env.EXPO_PUBLIC_API_URL}/products`)
       .then(response => response.json())
       .then(data => {
         if (data && data.length > 0) {
@@ -56,7 +56,7 @@ export const Store: React.FC = () => {
     const success = await deductBalance(product.price);
     if (success) {
       try {
-        const response = await fetch(`/api/purchase/${product.id}`, {
+        const response = await fetch(`${process.env.EXPO_PUBLIC_API_URL}/purchase/${product.id}`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ productId: product.id })

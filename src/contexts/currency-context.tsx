@@ -41,7 +41,7 @@ export const CurrencyProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         return;
       }
 
-      const response = await fetch(`http://localhost:8000/users/${userId}/balance/add`, {
+      const response = await fetch(`${process.env.EXPO_PUBLIC_API_URL}/users/${userId}/balance/add`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ amount, source: 'ad' })
@@ -69,7 +69,7 @@ export const CurrencyProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         return false;
       }
 
-      const response = await fetch(`http://localhost:8000/users/${userId}/balance/deduct`, {
+      const response = await fetch(`${process.env.EXPO_PUBLIC_API_URL}/users/${userId}/balance/deduct`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ amount, description: 'Purchase' })

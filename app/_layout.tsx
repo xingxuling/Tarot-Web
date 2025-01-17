@@ -4,6 +4,10 @@ import { useFonts } from 'expo-font';
 import { SplashScreen, Stack } from 'expo-router';
 import { useEffect } from 'react';
 import { useColorScheme } from 'react-native';
+import { LanguageProvider } from '../src/contexts/language-context';
+import { CurrencyProvider } from '../src/contexts/currency-context';
+import { AdProvider } from '../src/contexts/ad-context';
+import { ExperienceProvider } from '../src/contexts/experience-context';
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -46,11 +50,19 @@ function RootLayoutNav() {
   const colorScheme = useColorScheme();
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
-      </Stack>
-    </ThemeProvider>
+    <LanguageProvider>
+      <CurrencyProvider>
+        <AdProvider>
+          <ExperienceProvider>
+            <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+              <Stack>
+                <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+                <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
+              </Stack>
+            </ThemeProvider>
+          </ExperienceProvider>
+        </AdProvider>
+      </CurrencyProvider>
+    </LanguageProvider>
   );
 }

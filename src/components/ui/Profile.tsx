@@ -57,7 +57,7 @@ export const Profile: React.FC = () => {
         }
 
         // Fetch user profile
-        const response = await fetch(`http://localhost:8000/users/${userId}`);
+        const response = await fetch(`${process.env.EXPO_PUBLIC_API_URL}/users/${userId}`);
         const data = await response.json();
         setProfile(data);
 

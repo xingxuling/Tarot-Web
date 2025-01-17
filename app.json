@@ -4,7 +4,7 @@
     "slug": "tarot-assistant",
     "android": {
       "config": {
-        "googleMobileAdsAppId": "@env:ADMOB_APP_ID"
+        "googleMobileAdsAppId": "${process.env.ADMOB_APP_ID}"
       },
       "package": "com.tarotassistant.app",
       "permissions": [
@@ -15,7 +15,7 @@
     },
     "ios": {
       "config": {
-        "googleMobileAdsAppId": "@env:ADMOB_APP_ID"
+        "googleMobileAdsAppId": "${process.env.ADMOB_APP_ID}"
       },
       "bundleIdentifier": "com.tarotassistant.app",
       "buildNumber": "1.0.0"
@@ -36,13 +36,27 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "config": {
+        "googleMobileAdsAppId": "${process.env.ADMOB_APP_ID}"
+      },
+      "bundleIdentifier": "com.tarotassistant.app",
+      "buildNumber": "1.0.0"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "config": {
+        "googleMobileAdsAppId": "${process.env.ADMOB_APP_ID}"
+      },
+      "package": "com.tarotassistant.app",
+      "permissions": [
+        "INTERNET",
+        "ACCESS_NETWORK_STATE"
+      ],
+      "versionCode": 1
     },
     "web": {
       "bundler": "metro",
