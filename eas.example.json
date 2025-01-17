@@ -1,0 +1,45 @@
+{
+  "cli": {
+    "version": ">= 5.9.1"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "env": {
+        "EXPO_PUBLIC_API_URL": "@env:EXPO_PUBLIC_API_URL",
+        "ADMOB_PUBLISHER_ID": "@env:ADMOB_PUBLISHER_ID",
+        "ADMOB_APP_ID": "@env:ADMOB_APP_ID",
+        "ADMOB_BANNER_ID": "@env:ADMOB_BANNER_ID",
+        "ADMOB_REWARDED_ID": "@env:ADMOB_REWARDED_ID"
+      }
+    },
+    "preview": {
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk",
+        "gradleCommand": ":app:assembleRelease"
+      },
+      "env": {
+        "EXPO_PUBLIC_API_URL": "$(EXPO_PUBLIC_API_URL)",
+        "ADMOB_PUBLISHER_ID": "$(ADMOB_PUBLISHER_ID)",
+        "ADMOB_APP_ID": "$(ADMOB_APP_ID)",
+        "ADMOB_BANNER_ID": "$(ADMOB_BANNER_ID)",
+        "ADMOB_REWARDED_ID": "$(ADMOB_REWARDED_ID)"
+      }
+    },
+    "production": {
+      "autoIncrement": true,
+      "env": {
+        "EXPO_PUBLIC_API_URL": "@env:EXPO_PUBLIC_API_URL",
+        "ADMOB_PUBLISHER_ID": "@env:ADMOB_PUBLISHER_ID",
+        "ADMOB_APP_ID": "@env:ADMOB_APP_ID",
+        "ADMOB_BANNER_ID": "@env:ADMOB_BANNER_ID",
+        "ADMOB_REWARDED_ID": "@env:ADMOB_REWARDED_ID"
+      }
+    }
+  },
+  "submit": {
+    "production": {}
+  }
+}
