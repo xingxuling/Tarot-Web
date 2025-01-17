@@ -1,7 +1,7 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { Link, Tabs } from 'expo-router';
-import { Pressable, useColorScheme } from 'react-native';
-
+import { Tabs } from 'expo-router';
+import { useColorScheme, Pressable, Text } from 'react-native';
+import { useLanguage } from '../../src/contexts/language-context';
 import Colors from '../../constants/Colors';
 
 /**
@@ -16,38 +16,50 @@ function TabBarIcon(props: {
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
+  const { t, language, setLanguage } = useLanguage();
 
   return (
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarStyle: {
+          backgroundColor: '#1e1b4b',
+        },
+        headerStyle: {
+          backgroundColor: '#1e1b4b',
+        },
+        headerTintColor: '#fff',
+        headerRight: () => (
+          <Pressable
+            onPress={() => setLanguage(language === 'en' ? 'zh' : 'en')}
+            style={({ pressed }) => ({
+              opacity: pressed ? 0.5 : 1,
+              marginRight: 15,
+            })}
+          >
+            <Text style={{ color: '#fff' }}>{language === 'en' ? '中文' : 'EN'}</Text>
+          </Pressable>
+        ),
       }}>
       <Tabs.Screen
-        name="index"
+        name="tarot-reading"
         options={{
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-          headerRight: () => (
-            <Link href="/modal" asChild>
-              <Pressable>
-                {({ pressed }) => (
-                  <FontAwesome
-                    name="info-circle"
-                    size={25}
-                    color={Colors[colorScheme ?? 'light'].text}
-                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
-                  />
-                )}
-              </Pressable>
-            </Link>
-          ),
+          title: t('tabs.tarot_reading'),
+          tabBarIcon: ({ color }) => <TabBarIcon name="magic" color={color} />,
         }}
       />
       <Tabs.Screen
-        name="two"
+        name="store"
         options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: t('tabs.store'),
+          tabBarIcon: ({ color }) => <TabBarIcon name="shopping-cart" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: t('tabs.profile'),
+          tabBarIcon: ({ color }) => <TabBarIcon name="user" color={color} />,
         }}
       />
     </Tabs>

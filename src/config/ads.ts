@@ -20,21 +20,12 @@ export interface AdMobOptions {
 
 // AdMob Configuration
 export const AD_CONFIG: AdConfig = {
-  // Production IDs
-  PUBLISHER_ID: process.env.ADMOB_PUBLISHER_ID || 'YOUR_PUBLISHER_ID',
+  // Use environment variables for all ad IDs
+  PUBLISHER_ID: process.env.ADMOB_PUBLISHER_ID || '',
   
-  // Test Ad Unit IDs for development
-  // These are official test IDs from Google
-  TEST_BANNER_ID: Platform.select({
-    ios: 'ca-app-pub-3940256099942544/2934735716',
-    android: 'ca-app-pub-3940256099942544/6300978111',
-    default: 'ca-app-pub-3940256099942544/6300978111',
-  }),
-  TEST_REWARDED_ID: Platform.select({
-    ios: 'ca-app-pub-3940256099942544/1712485313',
-    android: 'ca-app-pub-3940256099942544/5224354917',
-    default: 'ca-app-pub-3940256099942544/5224354917',
-  }),
+  // Test Ad Unit IDs will be configured via environment variables
+  TEST_BANNER_ID: process.env.TEST_BANNER_ID || '',
+  TEST_REWARDED_ID: process.env.TEST_REWARDED_ID || '',
   
   // Production Ad Unit IDs
   // Using test IDs in development, production IDs will be created in AdMob console

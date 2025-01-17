@@ -15,8 +15,22 @@ envContent.split('\n').forEach(line => {
   }
 });
 
+// Verify all required environment variables are loaded
+const requiredVars = [
+  'EXPO_PUBLIC_API_URL',
+  'EXPO_PUBLIC_APP_ENV',
+  'ADMOB_PUBLISHER_ID',
+  'ADMOB_APP_ID',
+  'ADMOB_BANNER_ID',
+  'ADMOB_REWARDED_ID'
+];
+
 console.log('Test environment variables loaded:');
-console.log('ADMOB_PUBLISHER_ID:', process.env.ADMOB_PUBLISHER_ID);
-console.log('ADMOB_APP_ID:', process.env.ADMOB_APP_ID);
-console.log('ADMOB_BANNER_ID:', process.env.ADMOB_BANNER_ID);
-console.log('ADMOB_REWARDED_ID:', process.env.ADMOB_REWARDED_ID);
+requiredVars.forEach(varName => {
+  const value = process.env[varName];
+  if (!value) {
+    console.error(`Missing required environment variable: ${varName}`);
+    process.exit(1);
+  }
+  console.log(`${varName}:`, value);
+});

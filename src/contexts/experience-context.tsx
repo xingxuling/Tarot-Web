@@ -44,7 +44,7 @@ export const ExperienceProvider: React.FC<{ children: React.ReactNode }> = ({ ch
         return;
       }
 
-      const response = await fetch(`http://localhost:8000/users/${userId}/level`);
+      const response = await fetch(`${process.env.EXPO_PUBLIC_API_URL}/users/${userId}/level`);
       const data = await response.json();
       
       setExperience(data.experience);
@@ -62,7 +62,7 @@ export const ExperienceProvider: React.FC<{ children: React.ReactNode }> = ({ ch
         return;
       }
 
-      const response = await fetch(`http://localhost:8000/users/${userId}/experience?xp_amount=${amount}`, {
+      const response = await fetch(`${process.env.EXPO_PUBLIC_API_URL}/users/${userId}/experience?xp_amount=${amount}`, {
         method: 'POST'
       });
       const data = await response.json();
