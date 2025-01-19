@@ -1,8 +1,8 @@
 diff --git a/node_modules/expo-ads-admob/android/build.gradle b/node_modules/expo-ads-admob/android/build.gradle
-index 1a24e41..b979e1e 100644
+index 1a24e41..bd535c3 100644
 --- a/node_modules/expo-ads-admob/android/build.gradle
 +++ b/node_modules/expo-ads-admob/android/build.gradle
-@@ -6,65 +6,48 @@ group = 'host.exp.exponent'
+@@ -6,65 +6,36 @@ group = 'host.exp.exponent'
  version = '12.0.1'
  
  buildscript {
@@ -46,29 +46,22 @@ index 1a24e41..b979e1e 100644
  
  android {
 -  compileSdkVersion safeExtGet("compileSdkVersion", 30)
-+  compileSdkVersion rootProject.ext.compileSdkVersion
-+  buildToolsVersion rootProject.ext.buildToolsVersion
- 
-   compileOptions {
+-
+-  compileOptions {
 -    sourceCompatibility JavaVersion.VERSION_1_8
 -    targetCompatibility JavaVersion.VERSION_1_8
-+    sourceCompatibility JavaVersion.VERSION_11
-+    targetCompatibility JavaVersion.VERSION_11
-+  }
-+
-+  kotlinOptions {
-+    jvmTarget = JavaVersion.VERSION_11.toString()
-   }
+-  }
++  compileSdkVersion rootProject.ext.compileSdkVersion
++  buildToolsVersion rootProject.ext.buildToolsVersion
  
    defaultConfig {
 -    minSdkVersion safeExtGet("minSdkVersion", 21)
 -    targetSdkVersion safeExtGet("targetSdkVersion", 30)
+-    versionCode 26
+-    versionName "12.0.1"
 +    minSdkVersion rootProject.ext.minSdkVersion
 +    targetSdkVersion rootProject.ext.targetSdkVersion
-     versionCode 26
-     versionName "12.0.1"
    }
-+
    lintOptions {
      abortOnError false
    }
