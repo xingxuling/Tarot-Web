@@ -38,6 +38,7 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#1e1b4b"
       },
+      "targetSdkVersion": 34,
       "package": "com.tarotassistant.app",
       "versionCode": 1,
       "permissions": [
