@@ -1,8 +1,9 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Tabs } from 'expo-router';
-import { useColorScheme, Pressable, Text } from 'react-native';
+import { useColorScheme, Pressable, Text, StyleSheet } from 'react-native';
 import { useLanguage } from '../../src/contexts/language-context';
 import Colors from '../../constants/Colors';
+import { theme, colors } from '../../src/theme';
 
 /**
  * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
@@ -11,8 +12,26 @@ function TabBarIcon(props: {
   name: React.ComponentProps<typeof FontAwesome>['name'];
   color: string;
 }) {
-  return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
+  return <FontAwesome size={28} style={styles.icon} {...props} />;
 }
+
+const styles = StyleSheet.create({
+  header: {
+    backgroundColor: colors.primaryDark,
+  },
+  icon: {
+    marginBottom: -3,
+  },
+  languageButton: {
+    marginRight: theme.spacing.md,
+  },
+  languageText: {
+    color: colors.white,
+  },
+  tabBar: {
+    backgroundColor: colors.primaryDark,
+  },
+});
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -23,22 +42,18 @@ export default function TabLayout() {
       initialRouteName="tarot-reading"
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        tabBarStyle: {
-          backgroundColor: '#1e1b4b',
-        },
-        headerStyle: {
-          backgroundColor: '#1e1b4b',
-        },
-        headerTintColor: '#fff',
+        tabBarStyle: styles.tabBar,
+        headerStyle: styles.header,
+        headerTintColor: colors.white,
         headerRight: () => (
           <Pressable
             onPress={() => setLanguage(language === 'en' ? 'zh' : 'en')}
-            style={({ pressed }) => ({
-              opacity: pressed ? 0.5 : 1,
-              marginRight: 15,
-            })}
+            style={({ pressed }) => [
+              styles.languageButton,
+              { opacity: pressed ? 0.5 : 1 }
+            ]}
           >
-            <Text style={{ color: '#fff' }}>{language === 'en' ? '中文' : 'EN'}</Text>
+            <Text style={styles.languageText}>{language === 'en' ? '中文' : 'EN'}</Text>
           </Pressable>
         ),
       }}>

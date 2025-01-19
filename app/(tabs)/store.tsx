@@ -1,11 +1,19 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { Store } from '../../src/components/ui/Store';
+import { colors } from '../../src/theme';
 
 export default function StoreScreen() {
   return (
-    <View style={{ flex: 1, backgroundColor: '#1e1b4b' }}>
+    <View style={styles.container}>
       <Store />
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: colors.primaryDark,
+    flex: 1,
+  },
+});

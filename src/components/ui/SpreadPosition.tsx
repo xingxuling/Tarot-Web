@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
 import { TarotCard } from './TarotCard';
+import { theme, colors } from '../../theme';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
 
@@ -60,39 +61,39 @@ export const SpreadPosition: React.FC<SpreadPositionProps> = ({
 
 const styles = StyleSheet.create({
   container: {
+    alignItems: 'center',
     position: 'absolute',
     transform: [
       { translateX: -50 },
       { translateY: -75 }
     ],
-    alignItems: 'center',
   },
   emptyPosition: {
-    width: 100,
-    height: 150,
-    backgroundColor: 'rgba(255, 255, 255, 0.1)',
-    borderRadius: 8,
-    justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: colors.whiteAlpha10,
+    borderColor: colors.whiteAlpha20,
+    borderRadius: theme.borderRadius.md,
     borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.2)',
-  },
-  plusText: {
-    color: 'rgba(255, 255, 255, 0.5)',
-    fontSize: 32,
+    height: 150,
+    justifyContent: 'center',
+    width: 100,
   },
   loadingText: {
-    color: 'rgba(255, 255, 255, 0.5)',
+    color: colors.whiteAlpha50,
     fontSize: 14,
   },
+  plusText: {
+    color: colors.whiteAlpha50,
+    fontSize: 32,
+  },
   positionName: {
-    color: '#fff',
+    backgroundColor: colors.blackAlpha50,
+    borderRadius: theme.borderRadius.sm,
+    color: colors.white,
     fontSize: 12,
-    marginTop: 8,
+    marginTop: theme.spacing.sm,
+    paddingHorizontal: theme.spacing.sm,
+    paddingVertical: theme.spacing.xs,
     textAlign: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    paddingHorizontal: 8,
-    paddingVertical: 4,
-    borderRadius: 4,
   },
 });
