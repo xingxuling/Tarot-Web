@@ -14,6 +14,8 @@ module.exports = {
       jsx: true,
     },
     project: './tsconfig.json',
+    ecmaVersion: 2021,
+    sourceType: 'module',
   },
   settings: {
     react: {
@@ -24,8 +26,12 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react-native/no-inline-styles': 'warn',
     '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+    'react/prop-types': 'off',
   },
   env: {
     'react-native/react-native': true,
+    es2021: true,
+    node: true,
   },
+  ignorePatterns: ['*.config.js', 'metro.config.js', 'babel.config.js'],
 };
