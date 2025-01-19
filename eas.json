@@ -21,11 +21,11 @@
         "gradleCommand": ":app:assembleRelease"
       },
       "env": {
-        "EXPO_PUBLIC_API_URL": "@env:EXPO_PUBLIC_API_URL",
-        "ADMOB_PUBLISHER_ID": "@env:ADMOB_PUBLISHER_ID",
-        "ADMOB_APP_ID": "@env:ADMOB_APP_ID",
-        "ADMOB_BANNER_ID": "@env:ADMOB_BANNER_ID",
-        "ADMOB_REWARDED_ID": "@env:ADMOB_REWARDED_ID"
+        "EXPO_PUBLIC_API_URL": "$(EXPO_PUBLIC_API_URL)",
+        "ADMOB_PUBLISHER_ID": "$(ADMOB_PUBLISHER_ID)",
+        "ADMOB_APP_ID": "$(ADMOB_APP_ID)",
+        "ADMOB_BANNER_ID": "$(ADMOB_BANNER_ID)",
+        "ADMOB_REWARDED_ID": "$(ADMOB_REWARDED_ID)"
       }
     },
     "production": {
