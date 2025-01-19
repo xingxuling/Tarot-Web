@@ -15,7 +15,8 @@
       "distribution": "internal",
       "android": {
         "buildType": "apk",
-        "gradleCommand": ":app:assembleRelease"
+        "gradleCommand": ":app:assembleRelease",
+        "withoutCredentials": true
       },
       "env": {
         "EXPO_PUBLIC_API_URL": "https://tarot-fortune-app-tunnel-oi6jdwrw.devinapps.com",
