@@ -1,9 +1,13 @@
-const fs = require('fs');
-const path = require('path');
+import { readFileSync } from 'fs';
+import { join, dirname } from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 // Load test environment variables
-const testEnvPath = path.join(__dirname, '..', '.env.test');
-const envContent = fs.readFileSync(testEnvPath, 'utf8');
+const testEnvPath = join(__dirname, '..', '.env.test');
+const envContent = readFileSync(testEnvPath, 'utf8');
 
 // Parse and set environment variables
 envContent.split('\n').forEach(line => {

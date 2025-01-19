@@ -9,8 +9,13 @@ interface SpreadPositionProps {
   x: number;
   y: number;
   name: string;
-  description: string;
-  card?: any;
+  description?: string;
+  card?: {
+    name: string;
+    nameEn: string;
+    image: string;
+    isReversed: boolean;
+  };
   onPress?: () => void;
   isLoading?: boolean;
 }
@@ -19,7 +24,7 @@ export const SpreadPosition: React.FC<SpreadPositionProps> = ({
   x,
   y,
   name,
-  description,
+  description: _description, // Prefix with _ to indicate intentionally unused
   card,
   onPress,
   isLoading

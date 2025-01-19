@@ -1,4 +1,4 @@
-declare module '../config/ads' {
+declare module 'ads-config' {
   export const AD_CONFIG: {
     PUBLISHER_ID: string;
     TEST_BANNER_ID: string;

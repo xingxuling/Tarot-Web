@@ -1,9 +1,8 @@
 import React, { createContext, useContext, useState, useCallback, useEffect } from 'react';
-import { Platform } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 import * as ExpoAdMob from 'expo-ads-admob';
 import { useCurrency } from './currency-context';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { AD_CONFIG } from '../config/ads';
+import { AD_CONFIG } from 'ads-config';
 
 interface AdContextType {
   showRewardedAd: () => Promise<void>;
@@ -88,13 +87,7 @@ export const AdProvider: React.FC<{ children: React.ReactNode }> = ({ children }
         adUnitID={AD_CONFIG.BANNER_ID}
         servePersonalizedAds={true}
         onDidFailToReceiveAdWithError={(error: string) => console.error(error)}
-        style={{
-          position: 'absolute',
-          [position]: 0,
-          left: 0,
-          right: 0,
-          backgroundColor: 'rgba(0, 0, 0, 0.2)',
-        }}
+        style={[styles.bannerContainer, position === 'top' ? styles.topBanner : styles.bottomBanner]}
       />
     ),
     []
@@ -106,3 +99,17 @@ export const AdProvider: React.FC<{ children: React.ReactNode }> = ({ children }
     </AdContext.Provider>
   );
 };
+
+const styles = StyleSheet.create({
+  bannerContainer: {
+    left: 0,
+    position: 'absolute',
+    right: 0,
+  },
+  bottomBanner: {
+    bottom: 0,
+  },
+  topBanner: {
+    top: 0,
+  },
+});

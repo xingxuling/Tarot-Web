@@ -11,6 +11,9 @@
     "paths": {
       "@/*": [
         "./src/*"
+      ],
+      "ads-config": [
+        "./src/config/ads"
       ]
     }
   },
@@ -21,6 +24,8 @@
     "**/*.jsx",
     ".expo/types/**/*.ts",
     "expo-env.d.ts",
+    "src/**/*.d.ts",
+    "src/config/*.d.ts",
     ".eslintrc.js",
     "babel.config.js",
     "metro.config.js",

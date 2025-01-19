@@ -1,5 +1,3 @@
-import { Platform } from 'react-native';
-
 declare const __DEV__: boolean;
 
 // Type definitions

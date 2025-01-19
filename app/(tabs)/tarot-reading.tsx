@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { BannerAd } from '../../src/components/ui/BannerAd';
 import { useLanguage } from '../../src/contexts/language-context';
-import { theme, colors } from '../../theme';
+import { theme, colors } from '../../src/theme';
 
 export default function TarotReadingScreen() {
   const { t } = useLanguage();
@@ -20,16 +20,6 @@ export default function TarotReadingScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: colors.primaryDark,
-    flex: 1,
-  },
-  spreadContainer: {
-    alignItems: 'center',
-    flex: 1,
-    justifyContent: 'center',
-    padding: theme.spacing.md,
-  },
   cardPlaceholder: {
     alignItems: 'center',
     backgroundColor: colors.whiteAlpha10,
@@ -40,10 +30,20 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     width: 100,
   },
+  container: {
+    backgroundColor: colors.primaryDark,
+    flex: 1,
+  },
   placeholderText: {
     color: colors.whiteAlpha50,
     fontSize: 14,
     padding: theme.spacing.sm,
     textAlign: 'center',
+  },
+  spreadContainer: {
+    alignItems: 'center',
+    flex: 1,
+    justifyContent: 'center',
+    padding: theme.spacing.md,
   },
 });
