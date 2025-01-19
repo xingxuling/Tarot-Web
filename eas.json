@@ -1,43 +1,24 @@
 {
   "cli": {
-    "version": ">= 5.9.1",
-    "appVersionSource": "remote"
+    "version": ">= 5.9.1"
   },
   "build": {
     "development": {
       "developmentClient": true,
       "distribution": "internal",
       "android": {
-        "buildType": "apk"
+        "buildType": "apk",
+        "gradleCommand": ":app:assembleDebug"
       }
     },
     "preview": {
       "distribution": "internal",
       "android": {
-        "buildType": "apk",
-        "gradleCommand": ":app:assembleRelease",
-        "withoutCredentials": true
-      },
-      "env": {
-        "EXPO_PUBLIC_API_URL": "https://tarot-fortune-app-tunnel-oi6jdwrw.devinapps.com",
-        "ADMOB_PUBLISHER_ID": "pub-7821877430187111",
-        "ADMOB_APP_ID": "ca-app-pub-7821877430187111~2958524221",
-        "ADMOB_BANNER_ID": "ca-app-pub-7821877430187111/2194470416",
-        "ADMOB_REWARDED_ID": "ca-app-pub-7821877430187111/8352684652"
+        "buildType": "apk"
       }
     },
     "production": {
-      "autoIncrement": true,
-      "env": {
-        "EXPO_PUBLIC_API_URL": "@env:EXPO_PUBLIC_API_URL",
-        "ADMOB_PUBLISHER_ID": "@env:ADMOB_PUBLISHER_ID",
-        "ADMOB_APP_ID": "@env:ADMOB_APP_ID",
-        "ADMOB_BANNER_ID": "@env:ADMOB_BANNER_ID",
-        "ADMOB_REWARDED_ID": "@env:ADMOB_REWARDED_ID"
-      }
+      "autoIncrement": true
     }
-  },
-  "submit": {
-    "production": {}
   }
 }
