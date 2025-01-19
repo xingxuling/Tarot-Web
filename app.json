@@ -45,11 +45,16 @@
         "ACCESS_NETWORK_STATE"
       ],
       "config": {
-        "googleMobileAdsAppId": "@env:ADMOB_APP_ID"
+        "googleMobileAdsAppId": "ca-app-pub-7821877430187111~2958524221"
       }
     },
     "plugins": [
-      "expo-router",
+      [
+        "expo-router",
+        {
+          "origin": "root"
+        }
+      ],
       [
         "expo-ads-admob",
         {
