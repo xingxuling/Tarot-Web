@@ -52,7 +52,8 @@
         "rewarded": {
           "adUnitID": "ca-app-pub-7821877430187111/8352684652"
         }
-      }
+      },
+      "targetSdkVersion": 34
     },
     "plugins": [
       "expo-router",
