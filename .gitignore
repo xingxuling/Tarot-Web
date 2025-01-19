@@ -62,3 +62,4 @@ user.json
 # Expo generated
 # Android SDK Tools
 commandlinetools-linux-*.zip
+android/app/src/main/AndroidManifest.xml
