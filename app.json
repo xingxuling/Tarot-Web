@@ -22,7 +22,7 @@
       "bundleIdentifier": "com.tarotassistant.app",
       "buildNumber": "1.0.0",
       "config": {
-        "googleMobileAdsAppId": "$(ADMOB_APP_ID)"
+        "googleMobileAdsAppId": "ca-app-pub-7821877430187111~2958524221"
       },
       "infoPlist": {
         "NSUserTrackingUsageDescription": "此应用使用广告标识符来提供个性化广告体验。",
@@ -39,14 +39,14 @@
         "backgroundColor": "#1e1b4b"
       },
       "package": "com.tarotassistant.app",
-      "versionCode": 1,
       "permissions": [
         "INTERNET",
         "ACCESS_NETWORK_STATE"
       ],
       "config": {
-        "googleMobileAdsAppId": "$(ADMOB_APP_ID)"
-      }
+        "googleMobileAdsAppId": "ca-app-pub-7821877430187111~2958524221"
+      },
+      "targetSdkVersion": 34
     },
     "web": {
       "bundler": "metro",
@@ -72,6 +72,7 @@
       "eas": {
         "projectId": "b401d24e-05e6-44d8-abdc-9a95586494fb"
       }
-    }
+    },
+    "sdkVersion": "50.0.0"
   }
 }
