@@ -4,6 +4,7 @@ apply plugin: "com.facebook.react"
 def projectRoot = rootDir.getParentFile().getAbsolutePath()
 
 android {
+    namespace "com.tarotassistant.app"
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
 
