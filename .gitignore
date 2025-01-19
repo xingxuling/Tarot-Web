@@ -60,3 +60,5 @@ test_output.log
 user.json
 
 # Expo generated
+# Android SDK Tools
+commandlinetools-linux-*.zip
