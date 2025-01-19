@@ -25,7 +25,12 @@
         "googleMobileAdsAppId": "@env:ADMOB_APP_ID"
       },
       "infoPlist": {
-        "NSUserTrackingUsageDescription": "此应用使用广告标识符来提供个性化广告体验。"
+        "NSUserTrackingUsageDescription": "此应用使用广告标识符来提供个性化广告体验。",
+        "SKAdNetworkItems": [
+          {
+            "SKAdNetworkIdentifier": "cstr6suwn9.skadnetwork"
+          }
+        ]
       }
     },
     "android": {
@@ -59,6 +64,11 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      }
     }
   }
 }
