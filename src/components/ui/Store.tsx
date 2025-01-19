@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-nati
 import { useLanguage } from '../../contexts/language-context';
 import { useCurrency } from '../../contexts/currency-context';
 import { useExperience } from '../../contexts/experience-context';
+import { theme, colors } from '../../theme';
 
 interface Product {
   id: string;
@@ -122,7 +123,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   loadingText: {
-    color: '#fff',
+    color: colors.white,
   },
   header: {
     flexDirection: 'row',
@@ -148,12 +149,12 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   productCard: {
-    backgroundColor: 'rgba(147, 51, 234, 0.1)',
-    borderRadius: 12,
-    padding: 16,
-    marginBottom: 16,
+    backgroundColor: colors.primaryAlpha10,
+    borderRadius: theme.borderRadius.lg,
+    padding: theme.spacing.md,
+    marginBottom: theme.spacing.md,
     borderWidth: 1,
-    borderColor: 'rgba(147, 51, 234, 0.2)',
+    borderColor: colors.primaryAlpha20,
   },
   productEmoji: {
     fontSize: 32,

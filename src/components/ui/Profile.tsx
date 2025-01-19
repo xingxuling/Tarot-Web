@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { useLanguage } from '../../contexts/language-context';
 import { useExperience } from '../../contexts/experience-context';
+import { theme, colors } from '../../theme';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 interface Reading {
@@ -144,23 +145,23 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   loadingText: {
-    color: '#fff',
+    color: colors.white,
   },
   header: {
     flexDirection: 'row',
-    padding: 16,
-    backgroundColor: 'rgba(147, 51, 234, 0.1)',
-    borderRadius: 12,
-    marginBottom: 16,
+    padding: theme.spacing.md,
+    backgroundColor: colors.primaryAlpha10,
+    borderRadius: theme.borderRadius.lg,
+    marginBottom: theme.spacing.md,
   },
   avatar: {
     width: 64,
     height: 64,
     borderRadius: 32,
-    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    backgroundColor: colors.whiteAlpha10,
     justifyContent: 'center',
     alignItems: 'center',
-    marginRight: 16,
+    marginRight: theme.spacing.md,
   },
   avatarText: {
     fontSize: 32,
