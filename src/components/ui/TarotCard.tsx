@@ -49,23 +49,23 @@ export const TarotCard: React.FC<TarotCardProps> = ({
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: colors.whiteAlpha10,
-    borderRadius: theme.borderRadius.md,
-    padding: theme.spacing.sm,
-    justifyContent: 'center',
     alignItems: 'center',
-    borderWidth: 1,
+    backgroundColor: colors.whiteAlpha10,
     borderColor: colors.whiteAlpha20,
+    borderRadius: theme.borderRadius.md,
+    borderWidth: 1,
+    justifyContent: 'center',
+    padding: theme.spacing.sm,
   },
   content: {
     alignItems: 'center',
   },
   emoji: {
     fontSize: 32,
-    marginBottom: 8,
+    marginBottom: theme.spacing.sm,
   },
   name: {
-    color: '#fff',
+    color: colors.white,
     fontSize: 12,
     textAlign: 'center',
   },
