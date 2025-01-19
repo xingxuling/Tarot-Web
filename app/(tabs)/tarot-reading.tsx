@@ -1,9 +1,8 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { TarotCard } from '../../src/components/ui/TarotCard';
-import { SpreadPosition } from '../../src/components/ui/SpreadPosition';
 import { BannerAd } from '../../src/components/ui/BannerAd';
 import { useLanguage } from '../../src/contexts/language-context';
+import { theme, colors } from '../../theme';
 
 export default function TarotReadingScreen() {
   const { t } = useLanguage();
@@ -22,29 +21,29 @@ export default function TarotReadingScreen() {
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: colors.primaryDark,
     flex: 1,
-    backgroundColor: '#1e1b4b',
   },
   spreadContainer: {
-    flex: 1,
-    padding: 16,
-    justifyContent: 'center',
     alignItems: 'center',
+    flex: 1,
+    justifyContent: 'center',
+    padding: theme.spacing.md,
   },
   cardPlaceholder: {
-    width: 100,
-    height: 150,
-    backgroundColor: 'rgba(255, 255, 255, 0.1)',
-    borderRadius: 8,
-    justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: colors.whiteAlpha10,
+    borderColor: colors.whiteAlpha20,
+    borderRadius: theme.borderRadius.md,
     borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.2)',
+    height: 150,
+    justifyContent: 'center',
+    width: 100,
   },
   placeholderText: {
-    color: 'rgba(255, 255, 255, 0.5)',
+    color: colors.whiteAlpha50,
     fontSize: 14,
+    padding: theme.spacing.sm,
     textAlign: 'center',
-    padding: 8,
   },
 });
