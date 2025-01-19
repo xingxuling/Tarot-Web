@@ -19,7 +19,7 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.tarotassistant.app",
+      "bundleIdentifier": "YOUR_IOS_BUNDLE_IDENTIFIER",
       "buildNumber": "1.0.0",
       "config": {
         "googleMobileAdsAppId": "YOUR_IOS_ADMOB_APP_ID"
@@ -33,7 +33,7 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#1e1b4b"
       },
-      "package": "com.tarotassistant.app",
+      "package": "YOUR_ANDROID_PACKAGE_NAME",
       "versionCode": 1,
       "permissions": [
         "INTERNET",
