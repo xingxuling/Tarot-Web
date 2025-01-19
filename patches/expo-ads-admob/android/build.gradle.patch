@@ -1,0 +1,10 @@
+--- a/node_modules/expo-ads-admob/android/build.gradle
++++ b/node_modules/expo-ads-admob/android/build.gradle
+@@ -22,7 +22,7 @@
+
+ // Creating sources with comments
+ task androidSourcesJar(type: Jar) {
+-  classifier = 'sources'
++  archiveClassifier = 'sources'
+   from android.sourceSets.main.java.srcDirs
+ }
