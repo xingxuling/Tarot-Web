@@ -1,0 +1,14 @@
+diff --git a/node_modules/expo/android/build.gradle b/node_modules/expo/android/build.gradle
+index 794310b..5a0e8aa 100644
+--- a/node_modules/expo/android/build.gradle
++++ b/node_modules/expo/android/build.gradle
+@@ -81,7 +81,8 @@ afterEvaluate {
+ }
+ 
+ android {
+-  compileSdkVersion safeExtGet("compileSdkVersion", 33)
++  compileSdkVersion 34
++  buildToolsVersion "34.0.0"
+ 
+   compileOptions {
+     sourceCompatibility JavaVersion.VERSION_11
