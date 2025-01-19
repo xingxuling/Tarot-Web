@@ -13,7 +13,7 @@
     "build:android": "npx react-native build-android --mode=debug"
   },
   "dependencies": {
-    "@expo/config-plugins": "~7.2.2",
+    "@expo/config-plugins": "^7.2.2",
     "@expo/vector-icons": "^13.0.0",
     "@react-native-async-storage/async-storage": "1.18.2",
     "@react-navigation/native": "^6.0.2",
