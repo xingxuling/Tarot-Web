@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { useLanguage } from '../../contexts/language-context';
+import { theme, colors } from '../../theme';
 
 interface TarotCardProps {
   name: string;
@@ -48,13 +49,13 @@ export const TarotCard: React.FC<TarotCardProps> = ({
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: 'rgba(255, 255, 255, 0.1)',
-    borderRadius: 8,
-    padding: 8,
+    backgroundColor: colors.whiteAlpha10,
+    borderRadius: theme.borderRadius.md,
+    padding: theme.spacing.sm,
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.2)',
+    borderColor: colors.whiteAlpha20,
   },
   content: {
     alignItems: 'center',
