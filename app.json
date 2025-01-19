@@ -45,7 +45,13 @@
         "ACCESS_NETWORK_STATE"
       ],
       "config": {
-        "googleMobileAdsAppId": "ca-app-pub-7821877430187111~2958524221"
+        "googleMobileAdsAppId": "ca-app-pub-7821877430187111~2958524221",
+        "banner": {
+          "adUnitID": "ca-app-pub-7821877430187111/2194470416"
+        },
+        "rewarded": {
+          "adUnitID": "ca-app-pub-7821877430187111/8352684652"
+        }
       }
     },
     "plugins": [
