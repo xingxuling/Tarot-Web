@@ -114,28 +114,6 @@ export const Store: React.FC = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  loadingContainer: {
-    alignItems: 'center',
-    flex: 1,
-    justifyContent: 'center',
-  },
-  loadingText: {
-    color: colors.white,
-  },
-  header: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    padding: theme.spacing.md,
-  },
-  title: {
-    color: colors.white,
-    fontSize: 24,
-    fontWeight: 'bold',
-  },
   balance: {
     backgroundColor: colors.whiteAlpha10,
     borderRadius: theme.borderRadius.lg,
@@ -145,8 +123,22 @@ const styles = StyleSheet.create({
   balanceText: {
     color: colors.white,
   },
-  productGrid: {
+  container: {
+    flex: 1,
+  },
+  header: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     padding: theme.spacing.md,
+  },
+  loadingContainer: {
+    alignItems: 'center',
+    flex: 1,
+    justifyContent: 'center',
+  },
+  loadingText: {
+    color: colors.white,
   },
   productCard: {
     backgroundColor: colors.primaryAlpha10,
@@ -156,20 +148,23 @@ const styles = StyleSheet.create({
     marginBottom: theme.spacing.md,
     padding: theme.spacing.md,
   },
+  productDescription: {
+    color: colors.whiteAlpha70,
+    fontSize: 14,
+    marginBottom: theme.spacing.sm,
+  },
   productEmoji: {
     fontSize: 32,
     marginBottom: theme.spacing.sm,
+  },
+  productGrid: {
+    padding: theme.spacing.md,
   },
   productName: {
     color: colors.white,
     fontSize: 18,
     fontWeight: 'bold',
     marginBottom: theme.spacing.xs,
-  },
-  productDescription: {
-    color: colors.whiteAlpha70,
-    fontSize: 14,
-    marginBottom: theme.spacing.sm,
   },
   productPrice: {
     color: colors.primary,
@@ -186,6 +181,11 @@ const styles = StyleSheet.create({
   },
   purchaseButtonText: {
     color: colors.white,
+    fontWeight: 'bold',
+  },
+  title: {
+    color: colors.white,
+    fontSize: 24,
     fontWeight: 'bold',
   },
 });

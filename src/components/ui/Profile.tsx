@@ -136,24 +136,6 @@ export const Profile: React.FC = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  loadingContainer: {
-    alignItems: 'center',
-    flex: 1,
-    justifyContent: 'center',
-  },
-  loadingText: {
-    color: colors.white,
-  },
-  header: {
-    backgroundColor: colors.primaryAlpha10,
-    borderRadius: theme.borderRadius.lg,
-    flexDirection: 'row',
-    marginBottom: theme.spacing.md,
-    padding: theme.spacing.md,
-  },
   avatar: {
     alignItems: 'center',
     backgroundColor: colors.whiteAlpha10,
@@ -166,27 +148,8 @@ const styles = StyleSheet.create({
   avatarText: {
     fontSize: 32,
   },
-  userInfo: {
+  container: {
     flex: 1,
-  },
-  username: {
-    color: colors.white,
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginBottom: theme.spacing.xs,
-  },
-  userId: {
-    color: colors.whiteAlpha70,
-    fontSize: 12,
-    marginBottom: theme.spacing.sm,
-  },
-  levelContainer: {
-    marginTop: theme.spacing.sm,
-  },
-  levelTitle: {
-    color: colors.gold,
-    fontSize: 16,
-    marginBottom: theme.spacing.xs,
   },
   experienceBar: {
     backgroundColor: colors.whiteAlpha10,
@@ -203,17 +166,31 @@ const styles = StyleSheet.create({
     color: colors.whiteAlpha70,
     fontSize: 12,
   },
-  section: {
+  header: {
     backgroundColor: colors.primaryAlpha10,
     borderRadius: theme.borderRadius.lg,
+    flexDirection: 'row',
     marginBottom: theme.spacing.md,
     padding: theme.spacing.md,
   },
-  sectionTitle: {
+  levelContainer: {
+    marginTop: theme.spacing.sm,
+  },
+  levelTitle: {
+    color: colors.gold,
+    fontSize: 16,
+    marginBottom: theme.spacing.xs,
+  },
+  loadingContainer: {
+    alignItems: 'center',
+    flex: 1,
+    justifyContent: 'center',
+  },
+  loadingText: {
     color: colors.white,
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginBottom: theme.spacing.md,
+  },
+  productId: {
+    color: colors.white,
   },
   productItem: {
     backgroundColor: colors.primaryAlpha20,
@@ -221,8 +198,9 @@ const styles = StyleSheet.create({
     marginBottom: theme.spacing.sm,
     padding: theme.spacing.md,
   },
-  productId: {
-    color: colors.white,
+  readingDate: {
+    color: colors.whiteAlpha70,
+    fontSize: 12,
   },
   readingItem: {
     backgroundColor: colors.primaryAlpha20,
@@ -235,8 +213,30 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginBottom: theme.spacing.xs,
   },
-  readingDate: {
+  section: {
+    backgroundColor: colors.primaryAlpha10,
+    borderRadius: theme.borderRadius.lg,
+    marginBottom: theme.spacing.md,
+    padding: theme.spacing.md,
+  },
+  sectionTitle: {
+    color: colors.white,
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: theme.spacing.md,
+  },
+  userId: {
     color: colors.whiteAlpha70,
     fontSize: 12,
+    marginBottom: theme.spacing.sm,
+  },
+  userInfo: {
+    flex: 1,
+  },
+  username: {
+    color: colors.white,
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: theme.spacing.xs,
   },
 });

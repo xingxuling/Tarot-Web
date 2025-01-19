@@ -33,5 +33,5 @@ module.exports = {
     es2021: true,
     node: true,
   },
-  ignorePatterns: ['*.config.js', 'metro.config.js', 'babel.config.js'],
+  ignorePatterns: ['*.config.js', 'metro.config.js', 'babel.config.js', '*.d.ts'],
 };
