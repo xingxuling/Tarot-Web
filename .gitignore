@@ -33,6 +33,7 @@ yarn-error.*
 .env*.local
 .env.test
 .env.production
+!.env.example
 
 # example configuration files
 !app.example.json

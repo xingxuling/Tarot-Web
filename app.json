@@ -45,7 +45,7 @@
         "ACCESS_NETWORK_STATE"
       ],
       "config": {
-        "googleMobileAdsAppId": "$(ADMOB_APP_ID)"
+        "googleMobileAdsAppId": "@env:ADMOB_APP_ID"
       }
     },
     "web": {
