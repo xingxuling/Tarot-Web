@@ -1,6 +1,9 @@
 apply plugin: "com.android.application"
 apply plugin: "com.facebook.react"
 
+react {
+}
+
 def projectRoot = rootDir.getParentFile().getAbsolutePath()
 
 android {
@@ -38,13 +41,13 @@ android {
 }
 
 dependencies {
+    implementation("com.facebook.react:react-android")
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.0.0")
     implementation platform('com.google.firebase:firebase-bom:32.7.0')
     implementation "com.google.android.gms:play-services-ads:22.0.0"
     implementation "com.google.android.gms:play-services-ads-lite:22.0.0"
     implementation "com.google.android.gms:play-services-basement:18.0.0"
     implementation "com.google.android.gms:play-services-base:18.0.0"
-    implementation "com.facebook.react:react-native:+"
-    implementation project(':expo-modules-core')
 }
 
 apply from: new File(["node", "--print", "require.resolve('@react-native-community/cli-platform-android/package.json')"].execute(null, rootDir).text.trim(), "../native_modules.gradle");
