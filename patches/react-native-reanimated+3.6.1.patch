@@ -1,0 +1,22 @@
+diff --git a/node_modules/react-native-reanimated/android/src/main/java/com/swmansion/reanimated/keyboardObserver/ReanimatedKeyboardEventListener.java b/node_modules/react-native-reanimated/android/src/main/java/com/swmansion/reanimated/keyboardObserver/ReanimatedKeyboardEventListener.java
+index 123456..789012 100644
+--- a/node_modules/react-native-reanimated/android/src/main/java/com/swmansion/reanimated/keyboardObserver/ReanimatedKeyboardEventListener.java
++++ b/node_modules/react-native-reanimated/android/src/main/java/com/swmansion/reanimated/keyboardObserver/ReanimatedKeyboardEventListener.java
+@@ -64,7 +64,7 @@ public class ReanimatedKeyboardEventListener {
+     private View getDecorView(ReactContext context) {
+         if (decorView == null && context != null) {
+             View rootView = context.getCurrentActivity().getWindow().getDecorView();
+-            decorView = rootView.getRootView().findViewById(com.swmansion.reanimated.R.id.action_bar_root);
++            decorView = rootView.getRootView();
+         }
+         return decorView;
+     }
+@@ -149,7 +149,7 @@ public class ReanimatedKeyboardEventListener {
+     private View getDecorView() {
+         if (decorView == null && context != null) {
+             View rootView = context.getCurrentActivity().getWindow().getDecorView();
+-            decorView = getRootView().getRootView().findViewById(com.swmansion.reanimated.R.id.action_bar_root);
++            decorView = rootView.getRootView();
+         }
+         return decorView;
+     }
