@@ -1,10 +1,54 @@
-rootProject.name = '塔罗占卜助手'
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+        maven {
+            url "$rootDir/../node_modules/@react-native/gradle-plugin"
+        }
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    plugins {
+        id 'com.android.application' version '8.1.1'
+        id 'com.android.library' version '8.1.1'
+        id 'org.jetbrains.kotlin.android' version '1.8.10'
+    }
+}
 
-apply from: new File(["node", "--print", "require.resolve('expo/package.json')"].execute(null, rootDir).text.trim(), "../scripts/autolinking.gradle");
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.PREFER_PROJECT)
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            url "$rootDir/../node_modules/react-native/android"
+        }
+        maven {
+            url "$rootDir/../node_modules/jsc-android/dist"
+        }
+        maven {
+            url "https://www.jitpack.io"
+        }
+        maven {
+            url "$rootDir/../node_modules/@react-native/gradle-plugin"
+        }
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+        maven {
+            url "https://repo.maven.apache.org/maven2/"
+        }
+    }
+}
+
+rootProject.name = "tarotassistant"
+
+apply from: new File(["node", "--print", "require.resolve('expo/package.json')"].execute(null, rootDir).text.trim(), "../scripts/autolinking.gradle")
 useExpoModules()
 
-apply from: new File(["node", "--print", "require.resolve('@react-native-community/cli-platform-android/package.json')"].execute(null, rootDir).text.trim(), "../native_modules.gradle");
+apply from: new File(["node", "--print", "require.resolve('@react-native-community/cli-platform-android/package.json')"].execute(null, rootDir).text.trim(), "../native_modules.gradle")
 applyNativeModulesSettingsGradle(settings)
 
 include ':app'
-includeBuild(new File(["node", "--print", "require.resolve('@react-native/gradle-plugin/package.json')"].execute(null, rootDir).text.trim()).getParentFile())

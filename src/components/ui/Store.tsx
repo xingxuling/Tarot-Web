@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Alert } from 'react-native';
 import { useLanguage } from '../../contexts/language-context';
 import { useCurrency } from '../../contexts/currency-context';
 import { useExperience } from '../../contexts/experience-context';
+import { useAd } from '../../contexts/ad-context';
 import { theme, colors } from '../../theme';
 
 interface Product {
@@ -19,6 +20,10 @@ export const Store: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const { balance, deductBalance } = useCurrency();
   const { addExperience } = useExperience();
+  const { showAd, isAdReady, lastAdShownTime } = useAd();
+  const [adLoading, setAdLoading] = useState(false);
+
+  const canWatchAd = isAdReady && (!lastAdShownTime || Date.now() - lastAdShownTime >= 60000);
 
   useEffect(() => {
     fetch(`${process.env.EXPO_PUBLIC_API_URL}/products`)
@@ -93,6 +98,33 @@ export const Store: React.FC = () => {
         </View>
       </View>
 
+      <TouchableOpacity
+        style={[
+          styles.adButton,
+          (!canWatchAd || adLoading) && styles.adButtonDisabled
+        ]}
+        onPress={async () => {
+          try {
+            setAdLoading(true);
+            await showAd();
+          } catch (error) {
+            if (error instanceof Error) {
+              Alert.alert(t('common.error'), error.message);
+            }
+          } finally {
+            setAdLoading(false);
+          }
+        }}
+        disabled={!canWatchAd || adLoading}
+      >
+        <Text style={styles.adButtonText}>
+          {adLoading ? t('common.loading') : 
+           !isAdReady ? t('store.no_ads_available') :
+           !canWatchAd ? t('store.wait_before_next_ad') :
+           t('store.watch_ad_for_coins')}
+        </Text>
+      </TouchableOpacity>
+
       <View style={styles.productGrid}>
         {products.map((product) => (
           <View key={product.id} style={styles.productCard}>
@@ -114,6 +146,22 @@ export const Store: React.FC = () => {
 };
 
 const styles = StyleSheet.create({
+  adButton: {
+    backgroundColor: colors.primary,
+    borderRadius: theme.borderRadius.md,
+    marginHorizontal: theme.spacing.md,
+    marginVertical: theme.spacing.md,
+    padding: theme.spacing.md,
+  },
+  adButtonDisabled: {
+    opacity: 0.5,
+  },
+  adButtonText: {
+    color: colors.white,
+    fontSize: 16,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
   balance: {
     backgroundColor: colors.whiteAlpha10,
     borderRadius: theme.borderRadius.lg,

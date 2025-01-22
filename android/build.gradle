@@ -6,35 +6,88 @@ buildscript {
         minSdkVersion = 21
         compileSdkVersion = 34
         targetSdkVersion = 34
-        kotlinVersion = "1.9.0"
-        frescoVersion = "2.5.0"
-        playServicesAdsVersion = "22.5.0"
-        androidXCore = "1.8.0"
-        androidXAppCompat = "1.4.2"
-        androidXSwipeRefresh = "1.1.0"
-        androidXWebkit = "1.4.0"
+        kotlinVersion = "1.8.10"
         ndkVersion = "23.1.7779620"
-        kotlinCompilerExtensionVersion = "1.4.7"
-        
-        // React Native specific versions
+        frescoVersion = "2.5.0"
         reactNativeVersion = "0.72.10"
-        hermesEnabled = true
-        
-        // Expo specific versions
-        expoSdkVersion = "49.0.0"
-        
-        // Gradle and plugin versions
-        gradleVersion = "8.1.2"
-        agpVersion = "8.1.2"
+        androidXCore = "1.12.0"
+        androidXAppCompat = "1.6.1"
+        androidXMaterial = "1.9.0"
+        expoModulesCore = "1.11.8"
+        FLIPPER_VERSION = "0.182.0"
     }
+
     repositories {
         google()
         mavenCentral()
+        maven {
+            url "$rootDir/../node_modules/react-native/android"
+        }
+        maven {
+            url "$rootDir/../node_modules/jsc-android/dist"
+        }
+        maven {
+            url "https://www.jitpack.io"
+        }
+        maven {
+            url "$rootDir/../node_modules/@react-native/gradle-plugin"
+        }
+        maven {
+            url "$rootDir/../node_modules/expo/android"
+        }
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
     }
+
     dependencies {
-        classpath("com.android.tools.build:gradle:8.1.2")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}")
-        classpath("com.facebook.react:react-native-gradle-plugin")
+        classpath("com.android.tools.build:gradle:8.1.1")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
+        classpath("com.facebook.react:react-native-gradle-plugin:0.72.10")
+        classpath("host.exp.exponent:expo-gradle-plugin:0.0.1")
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            url "$rootDir/../node_modules/react-native/android"
+        }
+        maven {
+            url "$rootDir/../node_modules/jsc-android/dist"
+        }
+        maven {
+            url "https://www.jitpack.io"
+        }
+    }
+
+    configurations.all {
+        resolutionStrategy {
+            force "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+            force "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
+            force "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
+            force "androidx.core:core-ktx:$androidXCore"
+            force "androidx.appcompat:appcompat:$androidXAppCompat"
+            force "com.facebook.react:react-android:$reactNativeVersion"
+        }
+    }
+}
+
+// Apply Kotlin plugin to root project to avoid multiple loading
+apply plugin: "org.jetbrains.kotlin.android"
+
+allprojects {
+    configurations.all {
+        resolutionStrategy {
+            force "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+            force "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
+            force "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
+            force "androidx.core:core-ktx:$androidXCore"
+            force "androidx.appcompat:appcompat:$androidXAppCompat"
+            force "com.facebook.react:react-android:$reactNativeVersion"
+        }
     }
 }
 
