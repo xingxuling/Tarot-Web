@@ -1,0 +1,114 @@
+
+   FastAPI   Starting development server 🚀
+ 
+             Searching for package file structure from directories with 
+             __init__.py files
+             Importing from /home/ubuntu/tarot-assistant/backend
+ 
+    module   📁 app
+             ├── 🐍 __init__.py
+             └── 🐍 main.py
+ 
+      code   Importing the FastAPI app object from the module with the following
+             code:
+ 
+             from app.main import app
+ 
+       app   Using import string: app.main:app
+ 
+    server   Server started at http://127.0.0.1:8000
+    server   Documentation at http://127.0.0.1:8000/docs
+ 
+       tip   Running in development mode, for production use: fastapi run
+ 
+             Logs:
+ 
+      INFO   Will watch for changes in these directories: 
+             ['/home/ubuntu/tarot-assistant/backend']
+      INFO   Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+      INFO   Started reloader process [184631] using WatchFiles
+      INFO   Started server process [184753]
+      INFO   Waiting for application startup.
+      INFO   Application startup complete.
+   WARNING   WatchFiles detected changes in 'test_endpoints.py'. Reloading...
+      INFO   Shutting down
+      INFO   Waiting for application shutdown.
+      INFO   Application shutdown complete.
+      INFO   Finished server process [184753]
+      INFO   Started server process [184778]
+      INFO   Waiting for application startup.
+      INFO   Application startup complete.
+      INFO   127.0.0.1:51690 - "GET /healthz HTTP/1.1" 200
+      INFO   127.0.0.1:51700 - "POST /users HTTP/1.1" 200
+      INFO   127.0.0.1:51702 - "GET /products HTTP/1.1" 200
+      INFO   127.0.0.1:54304 - "POST /users HTTP/1.1" 200
+      INFO   127.0.0.1:54308 - "GET /users/e63c6894-50d2-4857-81c6-c7b1a9eedf91 
+             HTTP/1.1" 200
+      INFO   127.0.0.1:54322 - "PUT 
+             /users/e63c6894-50d2-4857-81c6-c7b1a9eedf91/language?language=zh 
+             HTTP/1.1" 200
+      INFO   127.0.0.1:54328 - "POST 
+             /users/e63c6894-50d2-4857-81c6-c7b1a9eedf91/balance/add?amount=100&
+             source=ad HTTP/1.1" 200
+      INFO   127.0.0.1:54332 - "POST 
+             /users/e63c6894-50d2-4857-81c6-c7b1a9eedf91/balance/deduct?amount=5
+             0&description=test HTTP/1.1" 200
+      INFO   127.0.0.1:40604 - "POST 
+             /users/e63c6894-50d2-4857-81c6-c7b1a9eedf91/experience?xp_amount=20
+             0 HTTP/1.1" 200
+      INFO   127.0.0.1:40608 - "GET 
+             /users/e63c6894-50d2-4857-81c6-c7b1a9eedf91/level HTTP/1.1" 200
+      INFO   127.0.0.1:40612 - "POST 
+             /readings/e63c6894-50d2-4857-81c6-c7b1a9eedf91 HTTP/1.1" 422
+      INFO   127.0.0.1:40614 - "GET 
+             /readings/e63c6894-50d2-4857-81c6-c7b1a9eedf91 HTTP/1.1" 200
+      INFO   127.0.0.1:40624 - "GET /revenue/summary HTTP/1.1" 200
+   WARNING   WatchFiles detected changes in 'app/main.py'. Reloading...
+      INFO   Shutting down
+      INFO   Waiting for application shutdown.
+      INFO   Application shutdown complete.
+      INFO   Finished server process [184778]
+      INFO   Started server process [186527]
+      INFO   Waiting for application startup.
+      INFO   Application startup complete.
+      INFO   127.0.0.1:46766 - "POST 
+             /readings/e63c6894-50d2-4857-81c6-c7b1a9eedf91 HTTP/1.1" 404
+      INFO   127.0.0.1:46776 - "GET 
+             /readings/e63c6894-50d2-4857-81c6-c7b1a9eedf91 HTTP/1.1" 404
+      INFO   127.0.0.1:46778 - "GET 
+             /users/e63c6894-50d2-4857-81c6-c7b1a9eedf91/level HTTP/1.1" 404
+      INFO   127.0.0.1:33130 - "POST /users HTTP/1.1" 200
+      INFO   127.0.0.1:33146 - "POST 
+             /users/c6f5afe7-2423-49db-bcc9-9b1ea1214542/balance/add?amount=100&
+             source=ad HTTP/1.1" 200
+      INFO   127.0.0.1:33158 - "POST 
+             /users/c6f5afe7-2423-49db-bcc9-9b1ea1214542/experience?xp_amount=20
+             0 HTTP/1.1" 200
+      INFO   127.0.0.1:33160 - "POST 
+             /readings/c6f5afe7-2423-49db-bcc9-9b1ea1214542 HTTP/1.1" 200
+      INFO   127.0.0.1:33174 - "GET 
+             /readings/c6f5afe7-2423-49db-bcc9-9b1ea1214542 HTTP/1.1" 200
+      INFO   127.0.0.1:33190 - "GET /users/c6f5afe7-2423-49db-bcc9-9b1ea1214542 
+             HTTP/1.1" 200
+      INFO   127.0.0.1:33794 - "GET /healthz HTTP/1.1" 200
+      INFO   127.0.0.1:33806 - "POST /users HTTP/1.1" 200
+      INFO   127.0.0.1:33812 - "GET /users/6d93d16f-0e85-420a-9092-dc5f9d03408a 
+             HTTP/1.1" 200
+      INFO   127.0.0.1:33820 - "GET 
+             /users/6d93d16f-0e85-420a-9092-dc5f9d03408a/level HTTP/1.1" 200
+      INFO   127.0.0.1:33822 - "GET /products HTTP/1.1" 200
+      INFO   127.0.0.1:33824 - "GET 
+             /readings/6d93d16f-0e85-420a-9092-dc5f9d03408a HTTP/1.1" 200
+      INFO   127.0.0.1:33836 - "GET /revenue/summary HTTP/1.1" 200
+      INFO   127.0.0.1:33844 - "POST 
+             /users/6d93d16f-0e85-420a-9092-dc5f9d03408a/balance/add?amount=100&
+             source=ad HTTP/1.1" 200
+      INFO   127.0.0.1:33846 - "POST 
+             /users/6d93d16f-0e85-420a-9092-dc5f9d03408a/experience?xp_amount=50
+             HTTP/1.1" 200
+      INFO   Shutting down
+      INFO   Waiting for application shutdown.
+      INFO   Application shutdown complete.
+      INFO   Finished server process [186527]
+      INFO   Stopping reloader process [184631]
+

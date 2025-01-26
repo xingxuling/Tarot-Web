@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "app"
+version = "0.1.0"
+description = ""
+authors = ["Devin AI <158243242+devin-ai-integration[bot]@users.noreply.github.com>"]
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = {extras = ["standard"], version = "^0.115.6"}
+psycopg = {extras = ["binary"], version = "^3.2.4"}
+flatlib = "^0.2.3"
+pyswisseph = "2.08.00-1"
+pytz = "^2023.3"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.3"
+httpx = "^0.25.2"
+pytest-asyncio = "^0.23.2"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
