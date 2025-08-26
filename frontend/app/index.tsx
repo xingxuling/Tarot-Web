@@ -252,6 +252,22 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     opacity: 0.8,
   },
+  navigatingContainer: {
+    backgroundColor: 'rgba(218, 165, 32, 0.3)',
+    borderWidth: 2,
+    borderColor: '#DAA520',
+    borderRadius: 12,
+    padding: 24,
+    alignItems: 'center',
+    marginBottom: 24,
+    minWidth: 280,
+  },
+  navigatingText: {
+    fontSize: 16,
+    color: '#DAA520',
+    fontWeight: '600',
+    marginTop: 12,
+  },
   roleIconContainer: {
     width: 60,
     height: 60,
