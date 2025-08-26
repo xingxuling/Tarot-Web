@@ -45,22 +45,21 @@ export default function Index() {
 
   const handleRoleSelection = (role: 'seeker' | 'reader') => {
     setIsLoading(true);
-    // 模拟导航延迟
+    // 简化处理，直接跳转而不使用会阻塞的Alert
     setTimeout(() => {
+      setIsLoading(false);
+      // 显示简单的反馈并继续
+      console.log(`用户选择了${role === 'seeker' ? '求测者' : '塔罗师'}身份`);
+      // TODO: 实际的页面导航逻辑
       Alert.alert(
-        '角色选择',
-        role === 'seeker' ? '您选择了求测者身份' : '您选择了塔罗师身份',
-        [
-          {
-            text: '确定',
-            onPress: () => {
-              setIsLoading(false);
-              // TODO: 导航到对应页面
-            },
-          },
-        ]
+        '欢迎',
+        `欢迎进入玄机妙算世界！\n您的身份：${role === 'seeker' ? '求测者' : '塔罗师'}`,
+        [{ text: '开始体验', onPress: () => {
+          // 这里可以添加导航到主页面的逻辑
+        }}],
+        { cancelable: true }
       );
-    }, 1000);
+    }, 800);
   };
 
   if (isLoading) {
