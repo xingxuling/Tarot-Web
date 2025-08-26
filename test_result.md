@@ -281,7 +281,9 @@ metadata:
   run_ui: false
 
 test_plan:
-  current_focus: []
+  current_focus:
+    - "登录导航修复验证"
+    - "后端API稳定性检查"
   stuck_tasks: []
   test_all: false
   test_priority: "high_first"
