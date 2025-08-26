@@ -24,6 +24,11 @@ export default function Login() {
   const [isLoading, setIsLoading] = useState(false);
   const [codeSent, setCodeSent] = useState(false);
 
+  const handleGoToRegister = () => {
+    console.log('导航到注册页面');
+    router.push('/auth/register');
+  };
+
   const sendVerificationCode = async () => {
     if (!phone || phone.length !== 11) {
       Alert.alert('提示', '请输入正确的手机号');
