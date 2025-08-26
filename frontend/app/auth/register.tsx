@@ -25,6 +25,8 @@ export default function Register() {
   const [selectedRole, setSelectedRole] = useState<UserRole>('seeker');
   const [isLoading, setIsLoading] = useState(false);
   const [codeSent, setCodeSent] = useState(false);
+  const [registerStatus, setRegisterStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [statusMessage, setStatusMessage] = useState('');
 
   const sendVerificationCode = async () => {
     if (!phone || phone.length !== 11) {
