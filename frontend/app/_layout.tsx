@@ -50,13 +50,6 @@ export default function RootLayout() {
           headerBackTitle: '返回',
         }} 
       />
-      <Stack.Screen 
-        name="divination/detail" 
-        options={{ 
-          title: '占卜详情',
-          headerBackTitle: '返回',
-        }} 
-      />
     </Stack>
   );
 }
