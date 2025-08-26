@@ -79,12 +79,17 @@ export default function Login() {
         setLoginStatus('success');
         setStatusMessage(`登录成功！欢迎回来，${data.nickname}！`);
         
-        // 3秒后重置状态
+        // 登录成功后跳转到主页面
         setTimeout(() => {
           setLoginStatus('idle');
           setStatusMessage('');
-          // TODO: 导航到主页面
-        }, 3000);
+          // 根据用户角色跳转到相应页面
+          if (data.role === 'reader') {
+            router.push('/divination/hall'); // 塔罗师跳转到接单大厅
+          } else {
+            router.push('/(tabs)/home'); // 求测者跳转到主页
+          }
+        }, 2000); // 缩短等待时间到2秒，让用户快速看到跳转
       } else {
         let errorMessage = data.detail || '登录失败，请稍后重试';
         
