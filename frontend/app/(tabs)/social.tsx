@@ -278,7 +278,7 @@ export default function Social() {
               <Text style={styles.inputHint}>
                 您可以在占卜结束后与塔罗师互加好友
               </Text>
-            </div>
+            </View>
 
             <View style={styles.modalActions}>
               <TouchableOpacity 
