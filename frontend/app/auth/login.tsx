@@ -169,7 +169,7 @@ export default function Login() {
           </TouchableOpacity>
 
           {/* Register Link */}
-          <TouchableOpacity style={styles.registerLink}>
+          <TouchableOpacity style={styles.registerLink} onPress={handleGoToRegister}>
             <Text style={styles.registerLinkText}>
               还没有账号？
               <Text style={styles.registerLinkHighlight}> 立即注册</Text>
