@@ -19,6 +19,7 @@ import { useRouter } from 'expo-router';
 type UserRole = 'seeker' | 'reader';
 
 export default function Register() {
+  const router = useRouter();
   const [phone, setPhone] = useState('');
   const [nickname, setNickname] = useState('');
   const [verificationCode, setVerificationCode] = useState('');
