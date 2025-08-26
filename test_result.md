@@ -107,51 +107,63 @@ user_problem_statement: "《玄机妙算世界》MVP 塔罗占卜应用开发"
 backend:
   - task: "用户注册登录API"
     implemented: true
-    working: "NA"
+    working: true
     file: "server.py"
     stuck_count: 0
     priority: "high"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
       - working: "NA"
         agent: "main"
         comment: "已实现用户注册/登录API，包含手机验证码验证功能"
+      - working: true
+        agent: "testing"
+        comment: "✅ 用户注册登录系统测试通过：注册API正确验证手机验证码(123456)，拒绝错误验证码和重复手机号，登录API正常工作，用户信息获取API正常，初始金币100，信誉分5.0"
   
   - task: "塔罗占卜系统API"
     implemented: true
-    working: "NA" 
+    working: true
     file: "server.py"
     stuck_count: 0
     priority: "high"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
       - working: "NA"
         agent: "main"
         comment: "已实现占卜订单创建、接单、抽牌、解读提交等核心API"
+      - working: true
+        agent: "testing"
+        comment: "✅ 塔罗占卜系统测试通过：订单创建API正确限制问题字数(≤10字)和支付范围(10-50金币)，待接单列表API正常，塔罗师接单API成功实现圣三角牌阵抽牌(过去-现在-未来)，Mock AI建议生成正常，解读提交API正确限制字数(≤100字)"
 
   - task: "金币交易系统API"
     implemented: true
-    working: "NA"
+    working: false
     file: "server.py" 
-    stuck_count: 0
+    stuck_count: 1
     priority: "high"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
       - working: "NA"
         agent: "main"
         comment: "已实现金币扣费、塔罗师收益分配、平台抽成等交易逻辑"
+      - working: false
+        agent: "testing"
+        comment: "❌ 金币交易系统存在严重业务逻辑错误：1)创建订单时不扣除金币，仅做余额检查但不实际扣费 2)余额不足检查失效，用户可以用0金币创建10金币订单 3)金币交易仅在解读提交时发生，应该在订单创建时扣费。需要修复create_divination_order函数添加实际扣费逻辑"
 
   - task: "社交系统API" 
     implemented: true
-    working: "NA"
+    working: true
     file: "server.py"
     stuck_count: 0
     priority: "medium"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
       - working: "NA"
         agent: "main"
         comment: "已实现好友添加、评价系统等基础社交功能"
+      - working: true
+        agent: "testing"
+        comment: "✅ 社交系统测试通过：添加好友API正常工作，订单评价API正确限制评分范围(1-5星)，用户历史记录API正常返回订单历史，信誉分计算逻辑正常(5星+0.2，1星-0.5)"
 
 frontend:
   - task: "用户认证界面"
