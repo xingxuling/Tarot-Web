@@ -194,7 +194,7 @@ export default function Home() {
               </View>
               <Text style={styles.activityReward}>+0.2信誉</Text>
             </View>
-          </div>
+          </View>
         </View>
 
         {/* Tips */}
