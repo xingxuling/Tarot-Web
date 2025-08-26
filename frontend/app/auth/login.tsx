@@ -171,6 +171,41 @@ export default function Login() {
             </View>
           )}
 
+          {/* Status Message */}
+          {loginStatus !== 'idle' && (
+            <View style={[
+              styles.statusContainer,
+              loginStatus === 'success' && styles.statusSuccess,
+              loginStatus === 'error' && styles.statusError,
+              loginStatus === 'loading' && styles.statusLoading,
+            ]}>
+              {loginStatus === 'loading' && (
+                <ActivityIndicator size="small" color="#DAA520" />
+              )}
+              <Ionicons 
+                name={
+                  loginStatus === 'success' ? 'checkmark-circle' :
+                  loginStatus === 'error' ? 'alert-circle' :
+                  'hourglass'
+                } 
+                size={20} 
+                color={
+                  loginStatus === 'success' ? '#4CAF50' :
+                  loginStatus === 'error' ? '#FF3B30' :
+                  '#DAA520'
+                }
+                style={{ marginRight: 8 }}
+              />
+              <Text style={[
+                styles.statusText,
+                loginStatus === 'success' && styles.statusTextSuccess,
+                loginStatus === 'error' && styles.statusTextError,
+              ]}>
+                {statusMessage}
+              </Text>
+            </View>
+          )}
+
           {/* Login Button */}
           <TouchableOpacity
             style={[
