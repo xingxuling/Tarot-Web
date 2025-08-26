@@ -216,6 +216,12 @@ async def create_divination_order(order_data: DivinationOrderCreate, seeker_id: 
     if not user or user["coins"] < order_data.payment:
         raise HTTPException(status_code=400, detail="金币余额不足")
     
+    # 立即扣除用户金币（预付费模式）
+    await db.users.update_one(
+        {"id": seeker_id},
+        {"$inc": {"coins": -order_data.payment}}
+    )
+    
     order = DivinationOrder(
         seeker_id=seeker_id,
         question=order_data.question,
