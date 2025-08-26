@@ -261,12 +261,10 @@ metadata:
 
 test_plan:
   current_focus:
-    - "金币交易系统API"
     - "用户认证界面"
     - "占卜创建界面"
     - "塔罗师接单大厅"
-  stuck_tasks:
-    - "金币交易系统API"
+  stuck_tasks: []
   test_all: false
   test_priority: "high_first"
 
