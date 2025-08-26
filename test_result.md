@@ -137,9 +137,9 @@ backend:
 
   - task: "金币交易系统API"
     implemented: true
-    working: false
+    working: true
     file: "server.py" 
-    stuck_count: 1
+    stuck_count: 0
     priority: "high"
     needs_retesting: false
     status_history:
@@ -149,6 +149,9 @@ backend:
       - working: false
         agent: "testing"
         comment: "❌ 金币交易系统存在严重业务逻辑错误：1)创建订单时不扣除金币，仅做余额检查但不实际扣费 2)余额不足检查失效，用户可以用0金币创建10金币订单 3)金币交易仅在解读提交时发生，应该在订单创建时扣费。需要修复create_divination_order函数添加实际扣费逻辑"
+      - working: true
+        agent: "testing"
+        comment: "✅ 金币交易系统Bug已修复并验证通过：1)创建订单时立即扣除金币（100→70金币）2)余额不足时正确拒绝订单创建 3)塔罗师在解读完成后获得收益27金币（30-3平台费）4)求测者金币无二次扣除 5)支持连续创建多个订单的正确扣费 6)边界情况处理正常（刚好够付、零余额拒绝）。金币交易的原子性和业务逻辑完全正确。"
 
   - task: "社交系统API" 
     implemented: true
