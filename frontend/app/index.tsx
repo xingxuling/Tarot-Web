@@ -185,9 +185,6 @@ const styles = StyleSheet.create({
     color: '#DAA520',
     textAlign: 'center',
     marginBottom: 8,
-    textShadowColor: 'rgba(0, 0, 0, 0.7)',
-    textShadowOffset: { width: 2, height: 2 },
-    textShadowRadius: 4,
   },
   subtitle: {
     fontSize: 16,
