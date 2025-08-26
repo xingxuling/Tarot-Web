@@ -258,16 +258,17 @@ metadata:
 
 test_plan:
   current_focus:
-    - "用户注册登录API"
-    - "塔罗占卜系统API"
     - "金币交易系统API"
     - "用户认证界面"
     - "占卜创建界面"
     - "塔罗师接单大厅"
-  stuck_tasks: []
+  stuck_tasks:
+    - "金币交易系统API"
   test_all: false
   test_priority: "high_first"
 
 agent_communication:
   - agent: "main"
     message: "已完成《玄机妙算世界》MVP核心功能开发，包含完整的用户系统、塔罗占卜流程、金币交易、社交功能。后端实现了22张大阿卡纳塔罗牌数据库、圣三角牌阵抽牌逻辑、Mock AI解读生成。前端采用React Native + Expo Router，实现了移动端优先的界面设计。需要进行全面的后端API测试以验证核心业务逻辑是否正常工作。"
+  - agent: "testing"
+    message: "已完成后端API全面测试。用户认证系统、塔罗占卜系统、社交系统均正常工作。发现金币交易系统存在严重业务逻辑错误：创建订单时不扣除金币，余额检查失效，用户可以无限创建订单而不消耗金币。需要修复create_divination_order函数添加实际的金币扣除逻辑。塔罗牌数据完整性良好，22张大阿卡纳牌已定义，圣三角牌阵抽牌逻辑正确。"
