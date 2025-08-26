@@ -15,50 +15,24 @@ import { Ionicons } from '@expo/vector-icons';
 const EXPO_PUBLIC_BACKEND_URL = process.env.EXPO_PUBLIC_BACKEND_URL;
 
 export default function Index() {
-  const [isLoading, setIsLoading] = useState(false);
-  const [showDisclaimer, setShowDisclaimer] = useState(true);
   const [selectedRole, setSelectedRole] = useState<string>('');
 
-  // 显示免责声明
-  const showDisclaimerAlert = () => {
-    Alert.alert(
-      '温馨提示',
-      '本应用仅供娱乐，占卜结果不作为人生决策依据。请理性对待，享受神秘文化的乐趣。',
-      [
-        {
-          text: '我知道了',
-          onPress: () => setShowDisclaimer(false),
-        },
-      ],
-      { cancelable: false }
-    );
-  };
-
-  useEffect(() => {
-    if (showDisclaimer) {
-      // 延迟显示免责声明，但添加取消机制
-      const timer = setTimeout(() => {
-        showDisclaimerAlert();
-      }, 1000);
-      return () => clearTimeout(timer);
-    }
-  }, [showDisclaimer]);
-
   const handleRoleSelection = (role: 'seeker' | 'reader') => {
-    setIsLoading(true);
-    setSelectedRole(role === 'seeker' ? '求测者' : '塔罗师');
+    const roleName = role === 'seeker' ? '求测者' : '塔罗师';
+    setSelectedRole(roleName);
     
-    // 简短的加载时间，然后自动恢复
+    // 简单的即时反馈，不使用阻塞性的Alert或加载状态
+    console.log(`用户选择了${roleName}身份`);
+    
+    // 可选的非阻塞提示
     setTimeout(() => {
-      setIsLoading(false);
-      // 简单的成功反馈，不阻塞用户
       Alert.alert(
-        '欢迎！',
-        `身份确认成功！\n您是：${role === 'seeker' ? '求测者' : '塔罗师'}\n\n当前为MVP演示版本`,
-        [{ text: '继续体验' }],
+        '身份确认',
+        `欢迎！您选择了：${roleName}\n\n这是《玄机妙算世界》MVP版本\n更多功能正在开发中...`,
+        [{ text: '了解', onPress: () => setSelectedRole('') }],
         { cancelable: true }
       );
-    }, 800);
+    }, 100);
   };
 
   if (isLoading) {
