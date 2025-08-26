@@ -16,23 +16,20 @@ const EXPO_PUBLIC_BACKEND_URL = process.env.EXPO_PUBLIC_BACKEND_URL;
 
 export default function Index() {
   const [selectedRole, setSelectedRole] = useState<string>('');
+  const [showFeedback, setShowFeedback] = useState<boolean>(false);
 
   const handleRoleSelection = (role: 'seeker' | 'reader') => {
     const roleName = role === 'seeker' ? '求测者' : '塔罗师';
     setSelectedRole(roleName);
+    setShowFeedback(true);
     
-    // 简单的即时反馈，不使用阻塞性的Alert或加载状态
     console.log(`用户选择了${roleName}身份`);
     
-    // 可选的非阻塞提示
+    // 显示反馈3秒后隐藏
     setTimeout(() => {
-      Alert.alert(
-        '身份确认',
-        `欢迎！您选择了：${roleName}\n\n这是《玄机妙算世界》MVP版本\n更多功能正在开发中...`,
-        [{ text: '了解', onPress: () => setSelectedRole('') }],
-        { cancelable: true }
-      );
-    }, 100);
+      setShowFeedback(false);
+      setSelectedRole('');
+    }, 3000);
   };
 
   return (
