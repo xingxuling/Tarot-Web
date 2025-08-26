@@ -66,8 +66,24 @@ export default function Index() {
           <View style={styles.roleContainer}>
             <Text style={styles.roleTitle}>选择您的身份</Text>
             
+            {/* 反馈显示区域 */}
+            {showFeedback && (
+              <View style={styles.feedbackContainer}>
+                <Ionicons name="checkmark-circle" size={32} color="#DAA520" />
+                <Text style={styles.feedbackText}>
+                  您选择了：{selectedRole}
+                </Text>
+                <Text style={styles.feedbackSubtext}>
+                  《玄机妙算世界》MVP版本
+                </Text>
+              </View>
+            )}
+            
             <TouchableOpacity 
-              style={styles.roleButton}
+              style={[
+                styles.roleButton,
+                selectedRole === '求测者' && styles.roleButtonSelected,
+              ]}
               onPress={() => handleRoleSelection('seeker')}
               activeOpacity={0.8}
             >
@@ -79,7 +95,10 @@ export default function Index() {
             </TouchableOpacity>
             
             <TouchableOpacity 
-              style={styles.roleButton}
+              style={[
+                styles.roleButton,
+                selectedRole === '塔罗师' && styles.roleButtonSelected,
+              ]}
               onPress={() => handleRoleSelection('reader')}
               activeOpacity={0.8}
             >
