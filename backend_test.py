@@ -1,15 +1,19 @@
 #!/usr/bin/env python3
 """
-《玄机妙算世界》塔罗占卜应用后端API测试
-Comprehensive backend API testing for Tarot Divination App
+《玄机妙算世界》塔罗占卜应用后端API深度测试
+Deep comprehensive backend API testing for Tarot Divination App
+包含边界测试、并发测试、错误处理测试等
 """
 
 import requests
 import json
 import time
-from typing import Dict, Any, Optional
+import threading
+import random
+from typing import Dict, Any, Optional, List
 import os
 from dotenv import load_dotenv
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 # Load environment variables
 load_dotenv('/app/frontend/.env')
