@@ -39,14 +39,14 @@ def main():
     # 1. 创建全新用户进行端到端测试
     print("1️⃣ 创建全新用户")
     seeker_data = {
-        "phone": "13800138888",
+        "phone": "13900139888",
         "nickname": "最终测试求测者",
         "role": "seeker",
         "verification_code": "123456"
     }
     
     reader_data = {
-        "phone": "13800138889",
+        "phone": "13900139889",
         "nickname": "最终测试塔罗师", 
         "role": "reader",
         "verification_code": "123456"
