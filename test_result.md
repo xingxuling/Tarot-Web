@@ -317,8 +317,7 @@ metadata:
         comment: "✅ 2025-01-26 后端API稳定性检查通过：用户认证系统完全正常，新用户注册成功(测试求测者/测试塔罗师)，初始数据正确(100金币，5.0信誉分)，登录验证正常，验证码系统(123456)工作正常"
 
 test_plan:
-  current_focus:
-    - "登录导航修复验证"
+  current_focus: []
   stuck_tasks: []
   test_all: false
   test_priority: "high_first"
