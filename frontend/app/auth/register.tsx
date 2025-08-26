@@ -308,7 +308,7 @@ export default function Register() {
           </TouchableOpacity>
 
           {/* Login Link */}
-          <TouchableOpacity style={styles.loginLink}>
+          <TouchableOpacity style={styles.loginLink} onPress={handleGoToLogin}>
             <Text style={styles.loginLinkText}>
               已有账号？
               <Text style={styles.loginLinkHighlight}> 立即登录</Text>
