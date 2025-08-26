@@ -250,6 +250,41 @@ export default function Register() {
             </View>
           </View>
 
+          {/* Status Message */}
+          {registerStatus !== 'idle' && (
+            <View style={[
+              styles.statusContainer,
+              registerStatus === 'success' && styles.statusSuccess,
+              registerStatus === 'error' && styles.statusError,
+              registerStatus === 'loading' && styles.statusLoading,
+            ]}>
+              {registerStatus === 'loading' && (
+                <ActivityIndicator size="small" color={registerStatus === 'loading' ? '#DAA520' : '#FFF'} />
+              )}
+              <Ionicons 
+                name={
+                  registerStatus === 'success' ? 'checkmark-circle' :
+                  registerStatus === 'error' ? 'alert-circle' :
+                  'hourglass'
+                } 
+                size={20} 
+                color={
+                  registerStatus === 'success' ? '#4CAF50' :
+                  registerStatus === 'error' ? '#FF3B30' :
+                  '#DAA520'
+                }
+                style={{ marginRight: 8 }}
+              />
+              <Text style={[
+                styles.statusText,
+                registerStatus === 'success' && styles.statusTextSuccess,
+                registerStatus === 'error' && styles.statusTextError,
+              ]}>
+                {statusMessage}
+              </Text>
+            </View>
+          )}
+
           {/* Register Button */}
           <TouchableOpacity
             style={[
