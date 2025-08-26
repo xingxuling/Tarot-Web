@@ -34,12 +34,18 @@ export default function Index() {
       setShowFeedback(false);
       
       // 根据角色导航到不同页面
-      if (role === 'seeker') {
-        // 求测者直接进入主界面（首页）
-        router.push('/(tabs)/home');
-      } else {
-        // 塔罗师进入接单大厅
-        router.push('/divination/hall');
+      try {
+        if (role === 'seeker') {
+          // 求测者进入注册页面或主界面
+          router.push('/auth/register');
+        } else {
+          // 塔罗师进入接单大厅
+          router.push('/divination/hall');
+        }
+      } catch (error) {
+        console.error('导航失败:', error);
+        // 如果导航失败，显示提示
+        Alert.alert('导航提示', `${roleName}功能正在开发中，请稍后体验`);
       }
       
       setIsNavigating(false);
