@@ -17,6 +17,7 @@ const EXPO_PUBLIC_BACKEND_URL = process.env.EXPO_PUBLIC_BACKEND_URL;
 export default function Index() {
   const [isLoading, setIsLoading] = useState(false);
   const [showDisclaimer, setShowDisclaimer] = useState(true);
+  const [selectedRole, setSelectedRole] = useState<string>('');
 
   // 显示免责声明
   const showDisclaimerAlert = () => {
@@ -35,7 +36,7 @@ export default function Index() {
 
   useEffect(() => {
     if (showDisclaimer) {
-      // 延迟显示免责声明
+      // 延迟显示免责声明，但添加取消机制
       const timer = setTimeout(() => {
         showDisclaimerAlert();
       }, 1000);
@@ -45,18 +46,16 @@ export default function Index() {
 
   const handleRoleSelection = (role: 'seeker' | 'reader') => {
     setIsLoading(true);
-    // 简化处理，直接跳转而不使用会阻塞的Alert
+    setSelectedRole(role === 'seeker' ? '求测者' : '塔罗师');
+    
+    // 简短的加载时间，然后自动恢复
     setTimeout(() => {
       setIsLoading(false);
-      // 显示简单的反馈并继续
-      console.log(`用户选择了${role === 'seeker' ? '求测者' : '塔罗师'}身份`);
-      // TODO: 实际的页面导航逻辑
+      // 简单的成功反馈，不阻塞用户
       Alert.alert(
-        '欢迎',
-        `欢迎进入玄机妙算世界！\n您的身份：${role === 'seeker' ? '求测者' : '塔罗师'}`,
-        [{ text: '开始体验', onPress: () => {
-          // 这里可以添加导航到主页面的逻辑
-        }}],
+        '欢迎！',
+        `身份确认成功！\n您是：${role === 'seeker' ? '求测者' : '塔罗师'}\n\n当前为MVP演示版本`,
+        [{ text: '继续体验' }],
         { cancelable: true }
       );
     }, 800);
