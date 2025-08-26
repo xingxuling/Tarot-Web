@@ -203,8 +203,12 @@ async def get_user(user_id: str):
     return User(**user)
 
 @api_router.post("/divination/create", response_model=DivinationOrder)
-async def create_divination_order(order_data: DivinationOrderCreate, seeker_id: str):
+async def create_divination_order(order_data: DivinationOrderCreate):
     """求测者创建占卜订单"""
+    # 从请求体中获取seeker_id，而不是作为查询参数
+    if not hasattr(order_data, 'seeker_id'):
+        raise HTTPException(status_code=400, detail="缺少求测者ID")
+    
     if len(order_data.question) > 10:
         raise HTTPException(status_code=400, detail="问题不能超过10个字")
     
@@ -212,18 +216,18 @@ async def create_divination_order(order_data: DivinationOrderCreate, seeker_id: 
         raise HTTPException(status_code=400, detail="支付金币必须在10-50之间")
     
     # 检查用户金币余额
-    user = await db.users.find_one({"id": seeker_id})
+    user = await db.users.find_one({"id": order_data.seeker_id})
     if not user or user["coins"] < order_data.payment:
         raise HTTPException(status_code=400, detail="金币余额不足")
     
     # 立即扣除用户金币（预付费模式）
     await db.users.update_one(
-        {"id": seeker_id},
+        {"id": order_data.seeker_id},
         {"$inc": {"coins": -order_data.payment}}
     )
     
     order = DivinationOrder(
-        seeker_id=seeker_id,
+        seeker_id=order_data.seeker_id,
         question=order_data.question,
         payment=order_data.payment
     )
