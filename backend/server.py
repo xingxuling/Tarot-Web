@@ -303,7 +303,7 @@ async def submit_interpretation(interpretation_data: InterpretationSubmit):
         }}
     )
     
-    # 处理金币交易（扣除10%平台费用）
+    # 处理塔罗师收益（金币已在创建订单时扣除，现在只需给塔罗师加金币）
     payment = order["payment"]
     platform_fee = int(payment * 0.1)
     reader_earning = payment - platform_fee
@@ -312,12 +312,6 @@ async def submit_interpretation(interpretation_data: InterpretationSubmit):
     await db.users.update_one(
         {"id": order["reader_id"]},
         {"$inc": {"coins": reader_earning}}
-    )
-    
-    # 扣除求测者金币
-    await db.users.update_one(
-        {"id": order["seeker_id"]},
-        {"$inc": {"coins": -payment}}
     )
     
     return {"message": "解读提交成功", "earning": reader_earning}
