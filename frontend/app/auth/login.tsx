@@ -343,6 +343,40 @@ const styles = StyleSheet.create({
     color: '#DAA520',
     fontWeight: '600',
   },
+  statusContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 16,
+    borderRadius: 12,
+    marginBottom: 16,
+  },
+  statusLoading: {
+    backgroundColor: 'rgba(218, 165, 32, 0.1)',
+    borderWidth: 1,
+    borderColor: 'rgba(218, 165, 32, 0.3)',
+  },
+  statusSuccess: {
+    backgroundColor: 'rgba(76, 175, 80, 0.1)',
+    borderWidth: 1,
+    borderColor: 'rgba(76, 175, 80, 0.3)',
+  },
+  statusError: {
+    backgroundColor: 'rgba(255, 59, 48, 0.1)',
+    borderWidth: 1,
+    borderColor: 'rgba(255, 59, 48, 0.3)',
+  },
+  statusText: {
+    flex: 1,
+    fontSize: 14,
+    color: '#FFFFFF',
+    lineHeight: 20,
+  },
+  statusTextSuccess: {
+    color: '#4CAF50',
+  },
+  statusTextError: {
+    color: '#FF3B30',
+  },
   footer: {
     alignItems: 'center',
     paddingBottom: 40,
