@@ -29,6 +29,11 @@ export default function Register() {
   const [registerStatus, setRegisterStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [statusMessage, setStatusMessage] = useState('');
 
+  const handleGoToLogin = () => {
+    console.log('导航到登录页面');
+    router.push('/auth/login');
+  };
+
   const sendVerificationCode = async () => {
     if (!phone || phone.length !== 11) {
       Alert.alert('提示', '请输入正确的手机号');
