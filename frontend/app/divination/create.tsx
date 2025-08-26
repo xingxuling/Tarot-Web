@@ -91,7 +91,7 @@ export default function CreateDivination() {
         >
           {/* Header */}
           <View style={styles.header}>
-            <Ionicons name="crystal-ball" size={48} color="#DAA520" />
+            <Ionicons name="diamond" size={48} color="#DAA520" />
             <Text style={styles.title}>塔罗占卜</Text>
             <Text style={styles.subtitle}>圣三角牌阵 - 探寻过去现在未来</Text>
           </View>
