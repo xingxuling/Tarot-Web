@@ -48,13 +48,19 @@ export default function Login() {
 
   const handleLogin = async () => {
     if (!phone || !verificationCode) {
-      Alert.alert('提示', '请填写完整信息');
+      setLoginStatus('error');
+      setStatusMessage('请填写完整信息');
+      setTimeout(() => setLoginStatus('idle'), 3000);
       return;
     }
 
     setIsLoading(true);
+    setLoginStatus('loading');
+    setStatusMessage('正在登录...');
 
     try {
+      console.log('开始登录请求...', { phone });
+      
       const response = await fetch(`${EXPO_PUBLIC_BACKEND_URL}/api/auth/login`, {
         method: 'POST',
         headers: {
@@ -67,25 +73,36 @@ export default function Login() {
       });
 
       const data = await response.json();
+      console.log('登录响应:', response.status, data);
 
       if (response.ok) {
-        Alert.alert(
-          '登录成功',
-          `欢迎回来，${data.nickname}！`,
-          [
-            {
-              text: '继续',
-              onPress: () => {
-                // TODO: 保存用户信息并导航到主页
-              },
-            },
-          ]
-        );
+        setLoginStatus('success');
+        setStatusMessage(`登录成功！欢迎回来，${data.nickname}！`);
+        
+        // 3秒后重置状态
+        setTimeout(() => {
+          setLoginStatus('idle');
+          setStatusMessage('');
+          // TODO: 导航到主页面
+        }, 3000);
       } else {
-        Alert.alert('登录失败', data.detail || '请稍后重试');
+        let errorMessage = data.detail || '登录失败，请稍后重试';
+        
+        if (errorMessage.includes('用户不存在')) {
+          errorMessage = '该手机号还未注册，请先注册账号';
+        } else if (errorMessage.includes('验证码错误')) {
+          errorMessage = '验证码错误，请输入正确的验证码（测试环境请输入：123456）';
+        }
+        
+        setLoginStatus('error');
+        setStatusMessage(errorMessage);
+        setTimeout(() => setLoginStatus('idle'), 5000);
       }
     } catch (error) {
-      Alert.alert('网络错误', '请检查网络连接');
+      console.error('登录网络错误:', error);
+      setLoginStatus('error');
+      setStatusMessage('网络连接失败，请检查网络后重试');
+      setTimeout(() => setLoginStatus('idle'), 5000);
     } finally {
       setIsLoading(false);
     }
