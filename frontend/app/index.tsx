@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import {
   Text,
   View,
@@ -11,12 +11,15 @@ import {
   ActivityIndicator
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { useRouter } from 'expo-router';
 
 const EXPO_PUBLIC_BACKEND_URL = process.env.EXPO_PUBLIC_BACKEND_URL;
 
 export default function Index() {
+  const router = useRouter();
   const [selectedRole, setSelectedRole] = useState<string>('');
   const [showFeedback, setShowFeedback] = useState<boolean>(false);
+  const [isNavigating, setIsNavigating] = useState<boolean>(false);
 
   const handleRoleSelection = (role: 'seeker' | 'reader') => {
     const roleName = role === 'seeker' ? '求测者' : '塔罗师';
@@ -25,11 +28,23 @@ export default function Index() {
     
     console.log(`用户选择了${roleName}身份`);
     
-    // 显示反馈3秒后隐藏
+    // 显示反馈1.5秒后导航
     setTimeout(() => {
+      setIsNavigating(true);
       setShowFeedback(false);
+      
+      // 根据角色导航到不同页面
+      if (role === 'seeker') {
+        // 求测者直接进入主界面（首页）
+        router.push('/(tabs)/home');
+      } else {
+        // 塔罗师进入接单大厅
+        router.push('/divination/hall');
+      }
+      
+      setIsNavigating(false);
       setSelectedRole('');
-    }, 3000);
+    }, 1500);
   };
 
   return (
