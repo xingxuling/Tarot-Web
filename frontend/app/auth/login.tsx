@@ -163,6 +163,7 @@ export default function Login() {
             <View style={styles.inputGroup}>
               <Text style={styles.label}>验证码</Text>
               <TextInput
+                testID="login-code-input"
                 style={styles.textInput}
                 placeholder="请输入6位验证码"
                 placeholderTextColor="#666"
@@ -170,6 +171,8 @@ export default function Login() {
                 onChangeText={setVerificationCode}
                 keyboardType="number-pad"
                 maxLength={6}
+                autoComplete="sms-otp"
+                textContentType="oneTimeCode"
               />
             </View>
           )}
