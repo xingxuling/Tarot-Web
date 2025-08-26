@@ -192,7 +192,7 @@ export default function CreateDivination() {
                 <Text style={styles.spreadDesc}>过去的影响</Text>
               </View>
               <View style={styles.spreadCard}>
-                <Ionicons name="present" size={24} color="#DAA520" />
+                <Ionicons name="time-outline" size={24} color="#DAA520" />
                 <Text style={styles.spreadTitle}>第二张牌</Text>
                 <Text style={styles.spreadDesc}>现在的状况</Text>
               </View>
