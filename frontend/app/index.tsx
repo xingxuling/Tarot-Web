@@ -89,8 +89,16 @@ export default function Index() {
                   您选择了：{selectedRole}
                 </Text>
                 <Text style={styles.feedbackSubtext}>
-                  《玄机妙算世界》MVP版本
+                  正在为您准备功能界面...
                 </Text>
+                <ActivityIndicator size="small" color="#DAA520" style={{ marginTop: 8 }} />
+              </View>
+            )}
+            
+            {isNavigating && (
+              <View style={styles.navigatingContainer}>
+                <ActivityIndicator size="large" color="#DAA520" />
+                <Text style={styles.navigatingText}>正在进入功能页面...</Text>
               </View>
             )}
             
