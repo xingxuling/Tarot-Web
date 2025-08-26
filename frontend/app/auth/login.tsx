@@ -128,6 +128,7 @@ export default function Login() {
             <Text style={styles.label}>手机号</Text>
             <View style={styles.phoneInputContainer}>
               <TextInput
+                testID="login-phone-input"
                 style={[styles.textInput, styles.phoneInput]}
                 placeholder="请输入手机号"
                 placeholderTextColor="#666"
@@ -135,6 +136,8 @@ export default function Login() {
                 onChangeText={setPhone}
                 keyboardType="phone-pad"
                 maxLength={11}
+                autoComplete="tel"
+                textContentType="telephoneNumber"
               />
               <TouchableOpacity
                 style={[
