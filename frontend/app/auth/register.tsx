@@ -84,7 +84,17 @@ export default function Register() {
           ]
         );
       } else {
-        Alert.alert('注册失败', data.detail || '请稍后重试');
+        // 显示具体的错误信息
+        let errorMessage = data.detail || '注册失败，请稍后重试';
+        
+        // 针对常见错误提供友好提示
+        if (errorMessage.includes('手机号已注册')) {
+          errorMessage = '该手机号已经注册过了，请直接登录或使用其他手机号';
+        } else if (errorMessage.includes('验证码错误')) {
+          errorMessage = '验证码错误，请输入正确的验证码（测试环境请输入：123456）';
+        }
+        
+        Alert.alert('注册失败', errorMessage);
       }
     } catch (error) {
       Alert.alert('网络错误', '请检查网络连接');
