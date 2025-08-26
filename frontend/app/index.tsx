@@ -220,10 +220,6 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     alignItems: 'center',
     minWidth: 280,
-    shadowColor: '#DAA520',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.3,
-    shadowRadius: 8,
     elevation: 5,
   },
   roleButtonSelected: {
