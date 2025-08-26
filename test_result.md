@@ -182,9 +182,9 @@ frontend:
     implemented: true
     working: true
     file: "app/auth/register.tsx, app/auth/login.tsx"
-    stuck_count: 0
+    stuck_count: 1
     priority: "high" 
-    needs_retesting: false
+    needs_retesting: true
     status_history:
       - working: "NA"
         agent: "main"
@@ -192,6 +192,12 @@ frontend:
       - working: true
         agent: "testing"
         comment: "✅ 用户认证界面测试通过：1)首页身份选择功能正常，主标题和角色按钮显示正确 2)求测者流程导航正常，点击'我要求测'成功跳转到注册页面 3)注册表单功能完整：手机号输入(13800138000)、验证码发送按钮、验证码输入(123456)、昵称输入、身份切换(求测者/塔罗师)均正常工作 4)表单验证和提交功能正常 5)移动端UI适配良好，在iPhone 12尺寸(390x844)下显示完美"
+      - working: false
+        agent: "user"
+        comment: "用户反馈：登录成功后'立即登录'按钮不跳转到主页面，停留在登录页面"
+      - working: "NA"
+        agent: "main"
+        comment: "已修复登录导航逻辑，根据用户角色跳转到不同页面(塔罗师→接单大厅，求测者→主页)，需要测试验证"
 
   - task: "占卜创建界面"
     implemented: true
