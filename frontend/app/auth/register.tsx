@@ -45,18 +45,26 @@ export default function Register() {
 
   const handleRegister = async () => {
     if (!phone || !nickname || !verificationCode) {
-      Alert.alert('提示', '请填写完整信息');
+      setRegisterStatus('error');
+      setStatusMessage('请填写完整信息');
+      setTimeout(() => setRegisterStatus('idle'), 3000);
       return;
     }
 
     if (nickname.length < 2 || nickname.length > 10) {
-      Alert.alert('提示', '昵称长度应在2-10字符之间');
+      setRegisterStatus('error');
+      setStatusMessage('昵称长度应在2-10字符之间');
+      setTimeout(() => setRegisterStatus('idle'), 3000);
       return;
     }
 
     setIsLoading(true);
+    setRegisterStatus('loading');
+    setStatusMessage('正在注册...');
 
     try {
+      console.log('开始注册请求...', { phone, nickname, selectedRole });
+      
       const response = await fetch(`${EXPO_PUBLIC_BACKEND_URL}/api/auth/register`, {
         method: 'POST',
         headers: {
@@ -71,20 +79,18 @@ export default function Register() {
       });
 
       const data = await response.json();
+      console.log('注册响应:', response.status, data);
 
       if (response.ok) {
-        Alert.alert(
-          '注册成功',
-          `欢迎${selectedRole === 'seeker' ? '求测者' : '塔罗师'} ${nickname}！`,
-          [
-            {
-              text: '开始体验',
-              onPress: () => {
-                // TODO: 保存用户信息并导航到主页
-              },
-            },
-          ]
-        );
+        setRegisterStatus('success');
+        setStatusMessage(`注册成功！欢迎${selectedRole === 'seeker' ? '求测者' : '塔罗师'} ${nickname}！`);
+        
+        // 3秒后重置状态
+        setTimeout(() => {
+          setRegisterStatus('idle');
+          setStatusMessage('');
+          // TODO: 导航到主页面
+        }, 3000);
       } else {
         // 显示具体的错误信息
         let errorMessage = data.detail || '注册失败，请稍后重试';
@@ -96,10 +102,15 @@ export default function Register() {
           errorMessage = '验证码错误，请输入正确的验证码（测试环境请输入：123456）';
         }
         
-        Alert.alert('注册失败', errorMessage);
+        setRegisterStatus('error');
+        setStatusMessage(errorMessage);
+        setTimeout(() => setRegisterStatus('idle'), 5000);
       }
     } catch (error) {
-      Alert.alert('网络错误', '请检查网络连接');
+      console.error('注册网络错误:', error);
+      setRegisterStatus('error');
+      setStatusMessage('网络连接失败，请检查网络后重试');
+      setTimeout(() => setRegisterStatus('idle'), 5000);
     } finally {
       setIsLoading(false);
     }
