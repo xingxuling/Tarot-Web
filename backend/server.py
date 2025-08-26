@@ -96,6 +96,7 @@ class DivinationOrder(BaseModel):
     completed_at: Optional[datetime] = None
 
 class DivinationOrderCreate(BaseModel):
+    seeker_id: str
     question: str
     payment: int
 
